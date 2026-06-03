@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import base.BaseTest;
 import pages.HomePage;
+import pages.LoginPage;
 
 public class HomePageTest extends BaseTest {
 
@@ -34,5 +35,19 @@ public class HomePageTest extends BaseTest {
         Assert.assertTrue(
                 "Modal de login deveria estar visível",
                 homePage.modalLoginEstaVisivel());
+    }
+
+    @Test
+    public void devePreencherFormularioLogin() {
+
+        HomePage homePage = new HomePage(driver);
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        homePage.clicarLogin();
+
+        loginPage.enterUsername("teste");
+
+        loginPage.enterPassword("123456");
     }
 }
