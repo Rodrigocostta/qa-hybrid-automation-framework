@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
     private WebDriver driver;
 
@@ -11,7 +11,7 @@ public class HomePage {
     private final By modalLogin = By.id("logInModal");
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public String obterTituloPagina() {
@@ -20,12 +20,12 @@ public class HomePage {
 
     /* BOtão de login */
     public void clicarLogin() {
-        driver.findElement(botaoLogin).click();
+        click(botaoLogin);
     }
 
     /* Vizualizar modal */
     public boolean modalLoginEstaVisivel() {
-        return driver.findElement(modalLogin).isDisplayed();
+        return isDisplayed(modalLogin);
     }
 
 }

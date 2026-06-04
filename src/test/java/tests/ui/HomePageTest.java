@@ -11,7 +11,7 @@ import pages.LoginPage;
 public class HomePageTest extends BaseTest {
 
     @Test
-    public void deveAbrirPaginaInicial() {
+    public void DeveAbrirPaginaInicial() {
 
         System.out.println("Iniciando teste");
 
@@ -51,6 +51,8 @@ public class HomePageTest extends BaseTest {
 
         loginPage.enterPassword(TestData.PASSWORD);
 
+
+     
         loginPage.clickLogin();
 
         /* Validar Login */

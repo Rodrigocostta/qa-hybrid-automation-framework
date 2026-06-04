@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import utils.WaitUtils;
 
-public class LoginPage {
-
-    private WebDriver driver;
+public class LoginPage extends BasePage {
 
     /* mapa de elementos */
     private final By usernameField = By.id("loginusername");
@@ -19,32 +17,27 @@ public class LoginPage {
     private final By welcomeUser = By.id("nameofuser");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void enterUsername(String username) {
-        driver.findElement(usernameField)
-                .sendKeys(username);
+        type(usernameField, username);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(passwordField)
-                .sendKeys(password);
+        type(passwordField, password);
     }
 
     public void clickLogin() {
-        driver.findElement(loginButton)
-                .click();
+        click(loginButton);
     }
 
     public String obterUsuarioLogado() {
 
-    WaitUtils.esperarTexto(
-            driver,
-            welcomeUser,
-            "Welcome");
-
-    return driver.findElement(welcomeUser)
-                 .getText();
-}
+        WaitUtils.esperarTexto(
+                driver,
+                welcomeUser,
+                "Welcome");
+        return getText(welcomeUser);
+    }
 }
