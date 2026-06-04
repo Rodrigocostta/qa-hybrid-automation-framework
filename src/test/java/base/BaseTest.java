@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
@@ -25,7 +26,6 @@ public class BaseTest {
     protected WebDriver driver;
 
     /* URL Base da aplicação */
-    private static final String URL_BASE = "https://www.demoblaze.com/";
 
     // Fazer Verifcao de telas de trabalho
     public void aguardarUrlContem(String parteUrl) {
@@ -55,7 +55,9 @@ public class BaseTest {
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-        driver.get(URL_BASE);
+
+        /* URL Base da aplicação */
+        driver.get(Config.BASE_URL);
     }
 
     @After

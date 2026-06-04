@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import base.BaseTest;
+import data.TestData;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -38,7 +39,7 @@ public class HomePageTest extends BaseTest {
     }
 
     @Test
-    public void devePreencherFormularioLogin() {
+    public void deveRealizarLoginComSucesso() {
 
         HomePage homePage = new HomePage(driver);
 
@@ -46,8 +47,20 @@ public class HomePageTest extends BaseTest {
 
         homePage.clicarLogin();
 
-        loginPage.enterUsername("teste");
+        loginPage.enterUsername(TestData.USERNAME);
 
-        loginPage.enterPassword("123456");
+        loginPage.enterPassword(TestData.PASSWORD);
+
+        loginPage.clickLogin();
+
+        /* Validar Login */
+        aguardarUrlContem("demoblaze");
+
+        String usuarioLogado = loginPage.obterUsuarioLogado();
+
+        Assert.assertEquals(
+                "Welcome Qa_Rodrigo",
+                usuarioLogado);
+
     }
 }

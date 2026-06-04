@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import utils.WaitUtils;
+
 public class LoginPage {
 
     private WebDriver driver;
@@ -13,6 +15,8 @@ public class LoginPage {
     private final By passwordField = By.id("loginpassword");
 
     private final By loginButton = By.xpath("//button[text()='Log in']");
+
+    private final By welcomeUser = By.id("nameofuser");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -33,4 +37,14 @@ public class LoginPage {
                 .click();
     }
 
+    public String obterUsuarioLogado() {
+
+    WaitUtils.esperarTexto(
+            driver,
+            welcomeUser,
+            "Welcome");
+
+    return driver.findElement(welcomeUser)
+                 .getText();
+}
 }
