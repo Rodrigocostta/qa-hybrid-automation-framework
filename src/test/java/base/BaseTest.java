@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.ScreenshotUtils;
+
 
 public class BaseTest {
 
@@ -36,6 +38,8 @@ public class BaseTest {
     @Before
     public void iniciar() {
         /* baixa o driver automaticamente */
+
+        System.out.println("=== METODO INICIAR EXECUTADO ===");
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -65,6 +69,13 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
+    }
+
+    protected void capturarEvidencia(String nomeArquivo) {
+
+        ScreenshotUtils.capturar(
+                driver,
+                nomeArquivo);
     }
 
 }

@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
 
-    private WebDriver driver;
-
     private final By botaoLogin = By.id("login2");
     private final By modalLogin = By.id("logInModal");
     private final By produtoSamsung = By.linkText("Samsung galaxy s6");
