@@ -87,3 +87,9 @@ Os testes serão considerados concluídos quando:
 - Todos os cenários críticos forem executados
 - Não existirem defeitos bloqueantes
 - Relatórios forem gerados com sucesso
+
+## Estratégia Atual
+
+Nesta fase do projeto a priorização está focada na automação de interface.
+
+A automação de API será implementada após a consolidação da camada UI.

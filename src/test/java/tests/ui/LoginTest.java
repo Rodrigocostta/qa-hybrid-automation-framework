@@ -37,9 +37,6 @@ public class LoginTest extends BaseTest {
 
         loginPage.clickLogin();
 
-        /* Validar Login */
-        aguardarUrlContem("demoblaze");
-
         String usuarioLogado = loginPage.obterUsuarioLogado();
 
         Assert.assertEquals(

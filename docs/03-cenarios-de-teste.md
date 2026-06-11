@@ -1,6 +1,6 @@
 # Cenários de Teste
 
-## Cenários de Interface (UI)
+## Cenários de Interface Implementados (UI)
 
 ### SCN-001
 
@@ -44,13 +44,7 @@ Validar finalização da compra
 
 ---
 
-### SCN-008
-
-Validar logout do usuário
-
----
-
-## Cenários de API
+## Cenários de API Planejados
 
 ### API-001
 
@@ -79,3 +73,5 @@ Validar estrutura da resposta
 ### API-005
 
 Validar tempo de resposta da API
+
+

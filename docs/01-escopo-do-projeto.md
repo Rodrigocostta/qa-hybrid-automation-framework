@@ -87,3 +87,23 @@ O projeto será considerado concluído quando:
 - Logs forem gerados automaticamente
 - Pipeline CI/CD estiver configurado
 - Execução automática via GitHub Actions estiver funcionando
+
+## Status Atual
+
+### Concluído
+
+- Estrutura Base
+- Automação UI
+- Login
+- Carrinho
+- Checkout
+
+### Em Desenvolvimento
+
+- Relatórios
+- CI/CD
+
+### Planejado
+
+- API Automation
+- Integração UI + API

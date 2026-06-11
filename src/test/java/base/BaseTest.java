@@ -9,13 +9,9 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.ScreenshotUtils;
-
 
 public class BaseTest {
 
@@ -29,17 +25,10 @@ public class BaseTest {
 
     /* URL Base da aplicação */
 
-    // Fazer Verifcao de telas de trabalho
-    public void aguardarUrlContem(String parteUrl) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.urlContains(parteUrl));
-    }
-
     @Before
     public void iniciar() {
         /* baixa o driver automaticamente */
 
-        System.out.println("=== METODO INICIAR EXECUTADO ===");
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();

@@ -1,5 +1,8 @@
 # Casos de Teste
 
+# Status
+Automatizado
+
 ---
 
 # TC-001
@@ -176,27 +179,3 @@ Carrinho com produto
 ## Resultado Esperado
 
 Compra realizada com sucesso
-
----
-
-# TC-008
-
-## Título
-
-Validar logout
-
-## Cenário Relacionado
-
-SCN-008
-
-## Pré-condição
-
-Usuário autenticado
-
-## Passos
-
-1. Clicar em Logout
-
-## Resultado Esperado
-
-Usuário desconectado
