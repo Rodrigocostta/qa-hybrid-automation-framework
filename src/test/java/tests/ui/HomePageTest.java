@@ -6,30 +6,27 @@ import org.junit.Test;
 import base.BaseTest;
 
 import pages.HomePage;
-import utils.LogUtils;
-
 
 public class HomePageTest extends BaseTest {
 
     @Test
     public void DeveAbrirPaginaInicial() {
+        logInfo("CT001 - Abrir Página Inicial");
 
-        LogUtils.info("Iniciando teste da página inicial");
-
+        logInfo("Abrindo página inicial");
         HomePage homePage = new HomePage(driver);
 
         String titulo = homePage.obterTituloPagina();
 
+        logInfo("Título encontrado: " + titulo);
 
-        LogUtils.info("Título encontrado: " + titulo);
+        Assert.assertEquals(
+                "Título da página incorreto",
+                "STORE",
+                titulo);
 
-        Assert.assertEquals("STORE", titulo);
+        logPass("Título da página inicial esperado encontrado");
 
-        LogUtils.info("Teste finalizado com sucesso");
-
-     
-
-       
     }
 
 }

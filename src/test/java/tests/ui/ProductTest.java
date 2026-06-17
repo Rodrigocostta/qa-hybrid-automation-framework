@@ -14,17 +14,20 @@ public class ProductTest extends BaseTest {
     /* Adiciona Produto ao Carrinho */
     @Test
     public void deveAdicionarProdutoAoCarrinho() {
+        logInfo("CT004 - Adicionar Produto ao Carrinho");
 
         HomePage homePage = new HomePage(driver);
 
         ProductPage productPage = new ProductPage(driver);
 
+        logInfo("Selecionando produto Samsung");
         homePage.clicarProdutoSamsung();
 
-        Assert.assertEquals(
+        Assert.assertEquals("Nome do produto incorreto",
                 "Samsung galaxy s6",
                 productPage.obterNomeProduto());
 
+        logInfo("Adicionando produto ao carrinho");
         productPage.adicionarAoCarrinho();
 
         Alert alerta = WaitUtils.esperarAlerta(driver);
@@ -32,8 +35,11 @@ public class ProductTest extends BaseTest {
         String mensagem = alerta.getText();
 
         Assert.assertEquals(
+                "Mensagem de produto adicionado incorreta",
                 "Product added",
                 mensagem);
+        logPass("Produto adicionado ao carrinho com sucesso");
+        capturarEvidencia("produto_adicionado");
 
         alerta.accept();
     }

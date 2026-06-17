@@ -11,7 +11,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import config.Config;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.ExtentReportManager;
 import utils.ScreenshotUtils;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import org.junit.Rule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
 
 public class BaseTest {
 
@@ -22,11 +28,66 @@ public class BaseTest {
      */
 
     protected WebDriver driver;
+    protected ExtentReports extent;
+    protected ExtentTest test;
+    private boolean testeFalhou = false;
+
+    @Rule
+    public TestWatcher reportWatcher = new TestWatcher() {
+
+        protected static final ExtentReports extent = ExtentReportManager.getInstance();
+
+        /* cria o teste no relatório */
+        @Override
+        protected void starting(
+                Description description) {
+
+            testeFalhou = false;
+
+            test = extent.createTest(
+                    description.getMethodName());
+        }
+
+        /* marca o teste como aprovado */
+        @Override
+        protected void succeeded(
+                Description description) {
+
+            test.pass("Teste executado com sucesso");
+
+        }
+
+        /* marca o teste como falho */
+        @Override
+        protected void failed(
+                Throwable e,
+                Description description) {
+
+            testeFalhou = true;
+
+            test.fail(e);
+        }
+
+        /* finaliza o teste no relatório */
+
+        @Override
+        protected void finished(
+                Description description) {
+
+            extent.flush();
+
+        }
+
+    };
 
     /* URL Base da aplicação */
 
     @Before
     public void iniciar() {
+
+        /* inicializa o relatório de extensão */
+        extent = ExtentReportManager.getInstance();
+
         /* baixa o driver automaticamente */
 
         WebDriverManager.chromedriver().setup();
@@ -55,16 +116,44 @@ public class BaseTest {
 
     @After
     public void finalizar() {
-        if (driver != null) {
+
+        try {
+
+            if (testeFalhou) {
+
+                ScreenshotUtils.capturar(
+                        driver,
+                        "ERRO_" + System.currentTimeMillis());
+
+            }
+
+        } finally {
+
             driver.quit();
+
         }
     }
 
+    /* metodos Extents Reports */
     protected void capturarEvidencia(String nomeArquivo) {
 
         ScreenshotUtils.capturar(
                 driver,
                 nomeArquivo);
+    }
+
+    protected void logInfo(String mensagem) {
+
+        if (test != null) {
+            test.info(mensagem);
+        }
+    }
+
+    protected void logPass(String mensagem) {
+
+        if (test != null) {
+            test.pass(mensagem);
+        }
     }
 
 }

@@ -1,109 +1,62 @@
-# Escopo do Projeto
+# Visão Geral
 
-## Nome do Projeto
+Este projeto tem como objetivo demonstrar a construção de um framework de automação híbrido utilizando boas práticas de mercado.
 
-QA Hybrid Automation Framework
+## Objetivos
 
----
+* Automatização de testes UI
+* Aplicação de Page Object Model
+* Relatórios profissionais
+* Evidências de execução
+* Estrutura preparada para testes de API
+* Manutenibilidade
+* Escalabilidade
 
-## Objetivo
+## Aplicação Testada
 
-Desenvolver um framework híbrido de automação de testes combinando testes de Interface (UI) e API utilizando:
-
-- Java
-- Selenium WebDriver
-- JUnit
-- Rest Assured
-- Maven
-- GitHub Actions
-- Allure Reports
-
-O objetivo do projeto é simular o fluxo de trabalho de um Analista de QA Automação, desde o planejamento dos testes até a execução automatizada.
-
----
-
-## Sistema Testado
-
-DemoBlaze
+Demoblaze
 
 https://www.demoblaze.com
 
----
+## Estado Atual
 
-## Fluxo Principal de Negócio
+Framework UI concluído com:
 
-O fluxo principal automatizado será:
+* Selenium
+* JUnit
+* Extent Reports
+* Screenshots
+* Logs
+* Waits centralizados
 
-Login
-→ Selecionar Produto
-→ Adicionar ao Carrinho
-→ Validar Carrinho
-→ Finalizar Compra
-→ Confirmar Pedido
-→ Logout
+# Tecnologias Utilizadas
 
----
+## Linguagem
 
-## Funcionalidades Dentro do Escopo
+* Java 21
 
-### Testes de Interface (UI)
+## Build
 
-- Página Inicial
-- Login
-- Seleção de Produto
-- Adição ao Carrinho
-- Validação do Carrinho
-- Finalização da Compra
-- Logout
+* Maven
 
-### Testes de API
+## Testes
 
-- Consulta de Produtos
-- Consulta de Detalhes de Produtos
-- Validação de Respostas da API
+* JUnit 4
 
----
+## Automação Web
 
-## Funcionalidades Fora do Escopo
+* Selenium WebDriver
 
-Não serão automatizados:
+## Driver Management
 
-- Cadastro de Usuário
-- Recuperação de Senha
-- Formulário de Contato
-- Testes de Performance
-- Testes de Segurança
-- Testes Mobile
+* WebDriverManager
 
----
+## Relatórios
 
-## Critérios de Sucesso
+* Extent Reports
 
-O projeto será considerado concluído quando:
+## Controle de Versão
 
-- Testes UI estiverem automatizados
-- Testes API estiverem automatizados
-- Relatórios forem gerados automaticamente
-- Logs forem gerados automaticamente
-- Pipeline CI/CD estiver configurado
-- Execução automática via GitHub Actions estiver funcionando
+* Git
+* GitHub
 
-## Status Atual
-
-### Concluído
-
-- Estrutura Base
-- Automação UI
-- Login
-- Carrinho
-- Checkout
-
-### Em Desenvolvimento
-
-- Relatórios
-- CI/CD
-
-### Planejado
-
-- API Automation
-- Integração UI + API

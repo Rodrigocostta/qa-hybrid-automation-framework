@@ -60,6 +60,19 @@ https://www.demoblaze.com
 * Pipeline CI/CD
 * Integração UI + API
 
+## Implementado
+
+- Selenium
+- JUnit 4
+- Extent Reports
+- ScreenshotUtils
+
+## Roadmap
+
+- Rest Assured
+- GitHub Actions
+- CI/CD
+
 ---
 
 # Estrutura do Projeto
@@ -284,7 +297,13 @@ mvn test
 
 ### Fase 2 - Relatórios e Evidências
 
-🚧 Em andamento
+✅ Relatórios HTML Extent Reports
+
+✅ Logs de execução
+
+✅ Evidências automáticas
+
+✅ Screenshots em falha
 
 ---
 

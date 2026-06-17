@@ -13,41 +13,8 @@ import utils.WaitUtils;
 public class CartTest extends BaseTest {
 
         @Test
-        public void deveAdicionarProdutoAoCarrinhoComSucesso() {
-
-                HomePage homePage = new HomePage(driver);
-
-                ProductPage productPage = new ProductPage(driver);
-
-                CartPage cartPage = new CartPage(driver);
-
-                homePage.clicarProdutoSamsung();
-
-                Assert.assertEquals(
-                                "Samsung galaxy s6",
-                                productPage.obterNomeProduto());
-
-                productPage.adicionarAoCarrinho();
-
-                Alert alerta = WaitUtils.esperarAlerta(driver);
-
-                Assert.assertEquals(
-                                "Product added",
-                                alerta.getText());
-
-                alerta.accept();
-
-                homePage.clicarCarrinho();
-
-                capturarEvidencia("produto_no_carrinho");
-
-                Assert.assertTrue(
-                                "Produto deveria estar no carrinho",
-                                cartPage.produtoEstaNoCarrinho());
-        }
-
-        @Test
         public void deveRemoverProdutoDoCarrinho() throws InterruptedException {
+                logInfo("CT005 - Remover Produto do Carrinho");
 
                 HomePage homePage = new HomePage(driver);
 
@@ -55,22 +22,28 @@ public class CartTest extends BaseTest {
 
                 CartPage cartPage = new CartPage(driver);
 
+                logInfo("Selecionando produto Samsung");
                 homePage.clicarProdutoSamsung();
 
+                logInfo("Adicionando produto ao carrinho");
                 productPage.adicionarAoCarrinho();
 
                 Alert alerta = WaitUtils.esperarAlerta(driver);
 
                 alerta.accept();
 
+                logInfo("Acessando carrinho");
                 homePage.clicarCarrinho();
 
                 Assert.assertTrue(
+                                "Produto não encontrado no carrinho",
                                 cartPage.produtoExisteNoCarrinho());
 
+                logInfo("Removendo produto do carrinho");
                 cartPage.removerProduto();
-                Thread.sleep(3000);
+                cartPage.aguardarRemocaoProduto();
 
+                logPass("Produto removido do carrinho com sucesso");
                 capturarEvidencia("produto_removido");
 
                 Assert.assertFalse(

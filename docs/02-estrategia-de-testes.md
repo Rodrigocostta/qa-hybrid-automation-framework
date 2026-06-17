@@ -2,94 +2,33 @@
 
 ## Objetivo
 
-Definir a abordagem de testes utilizada no projeto.
+Garantir a estabilidade das funcionalidades críticas do sistema Demoblaze.
 
----
+## Escopo
 
-## Tipos de Teste
+Funcionalidades automatizadas:
 
-### Testes Funcionais
+* Navegação inicial
+* Login
+* Carrinho de compras
+* Checkout
 
-Validar se o sistema se comporta conforme esperado.
+## Ferramentas
 
-Exemplos:
+* Java 21
+* Selenium WebDriver
+* JUnit 4
+* WebDriverManager
+* Extent Reports
 
-- Login
-- Seleção de Produto
-- Compra de Produto
+## Critérios de Aprovação
 
----
+Todos os cenários automatizados devem executar sem falhas.
 
-### Testes de Regressão
+## Evidências
 
-Garantir que novas alterações não afetem funcionalidades já existentes.
+As evidências são registradas através de:
 
----
-
-### Testes Automatizados de Interface
-
-Ferramentas:
-
-- Selenium WebDriver
-- JUnit
-
----
-
-### Testes Automatizados de API
-
-Ferramentas:
-
-- Rest Assured
-- JUnit
-
----
-
-## Níveis de Teste
-
-### Teste End-to-End
-
-Validar o fluxo completo do usuário.
-
-Exemplo:
-
-Login
-→ Selecionar Produto
-→ Comprar Produto
-→ Logout
-
----
-
-### Teste de API
-
-Validar:
-
-- Status Code
-- Estrutura da Resposta
-- Tempo de Resposta
-- Conteúdo da Resposta
-
----
-
-## Critérios de Entrada
-
-Antes da execução dos testes:
-
-- Sistema disponível
-- Ambiente disponível
-- Massa de teste disponível
-
----
-
-## Critérios de Saída
-
-Os testes serão considerados concluídos quando:
-
-- Todos os cenários críticos forem executados
-- Não existirem defeitos bloqueantes
-- Relatórios forem gerados com sucesso
-
-## Estratégia Atual
-
-Nesta fase do projeto a priorização está focada na automação de interface.
-
-A automação de API será implementada após a consolidação da camada UI.
+* Extent Report
+* Screenshots
+* Logs de execução

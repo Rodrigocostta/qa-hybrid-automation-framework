@@ -45,4 +45,63 @@ public class ScreenshotUtils {
                         e.printStackTrace();
                 }
         }
+
+       public static String capturarRetornandoCaminho(
+        WebDriver driver,
+        String nomeArquivo) {
+
+    try {
+
+        System.out.println(
+                "INICIOU CAPTURA");
+
+        File origem =
+                ((TakesScreenshot) driver)
+                        .getScreenshotAs(
+                                OutputType.FILE);
+
+        System.out.println(
+                "ARQUIVO TEMPORARIO CRIADO");
+
+        String caminho =
+                "target/screenshots/"
+                        + nomeArquivo
+                        + ".png";
+
+        File destino =
+                new File(caminho);
+
+        destino.getParentFile().mkdirs();
+
+        Files.copy(
+                origem.toPath(),
+                destino.toPath(),
+                StandardCopyOption.REPLACE_EXISTING);
+
+        System.out.println(
+                "ARQUIVO COPIADO");
+
+        System.out.println(
+                destino.getAbsolutePath());
+
+        return destino.getAbsolutePath();
+
+    } catch (Exception e) {
+
+        System.out.println(
+                "ERRO AO CAPTURAR SCREENSHOT");
+
+        System.out.println(
+                "Classe: "
+                        + e.getClass().getName());
+
+        System.out.println(
+                "Mensagem: "
+                        + e.getMessage());
+
+        e.printStackTrace();
+
+        return null;
+    }
+}
 }

@@ -1,52 +1,31 @@
-# Decisões Técnicas do Projeto
+# Relatórios
 
-## Captura Automática de Screenshots
+O framework utiliza Extent Reports.
 
-### Objetivo
+## Recursos
 
-Implementar captura automática de screenshots quando um teste falhasse, utilizando JUnit 4 e TestWatcher.
+* Registro de execução
+* Logs de informação
+* Logs de sucesso
+* Registro de falhas
+* Anexação de screenshots
 
-### Abordagem Tentada
+## Local
 
-Foi implementado um TestWatcher na classe BaseTest para interceptar falhas de testes e acionar automaticamente o ScreenshotUtils.
+```text
+target/extent-report.html
+```
 
-Exemplo:
+## Eventos
 
-* Teste falha
-* Método failed() do TestWatcher é executado
-* ScreenshotUtils é acionado
-* Evidência deveria ser salva automaticamente
+### INFO
 
-### Problema Encontrado
+Passos executados durante o cenário.
 
-Durante a execução, o Selenium retornou a exceção:
+### PASS
 
-org.openqa.selenium.NoSuchSessionException
+Validações aprovadas.
 
-Mensagem:
+### FAIL
 
-Session ID is null. Using WebDriver after calling quit()?
-
-O WebDriver já não possuía uma sessão válida no momento da tentativa de captura.
-
-### Decisão Adotada
-
-Optou-se por utilizar capturas manuais de evidência nos pontos mais importantes do fluxo de negócio:
-
-* Login realizado com sucesso
-* Produto adicionado ao carrinho
-* Produto removido do carrinho
-* Compra finalizada
-
-A classe ScreenshotUtils foi mantida no projeto para geração de evidências.
-
-### Possível Evolução Futura
-
-Avaliar integração com:
-
-* Allure Reports
-* Extent Reports
-* TestNG Listeners
-* JUnit 5 Extensions
-
-para implementação de captura automática de screenshots de forma mais robusta.
+Falhas encontradas durante a execução.

@@ -3,9 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import utils.WaitUtils;
+
 public class CartPage extends BasePage {
 
-    private final By nomeProdutoCarrinho = By.xpath("//tr[contains(.,'Samsung galaxy s6')]");
+    private final By produtoSamsung = By.xpath("//tr[contains(.,'Samsung galaxy s6')]");
     private final By botaoDelete = By.linkText("Delete");
     private final By botaoPlaceOrder = By.xpath("//button[text()='Place Order']");
 
@@ -14,11 +16,18 @@ public class CartPage extends BasePage {
     }
 
     public boolean produtoEstaNoCarrinho() {
-        return isDisplayed(nomeProdutoCarrinho);
+        return isDisplayed(produtoSamsung);
     }
 
     public void removerProduto() {
         click(botaoDelete);
+    }
+
+    public void aguardarRemocaoProduto() {
+
+        WaitUtils.esperarProdutoRemovido(
+                driver,
+                produtoSamsung);
     }
 
     public boolean produtoExisteNoCarrinho() {

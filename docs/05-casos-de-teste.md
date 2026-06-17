@@ -1,181 +1,133 @@
 # Casos de Teste
 
-# Status
-Automatizado
+## CT001 - Abrir Página Inicial
+
+### Objetivo
+
+Validar que a página inicial do Demoblaze é carregada corretamente.
+
+### Pré-condição
+
+* Navegador disponível.
+* Aplicação acessível.
+
+### Passos
+
+1. Acessar a URL da aplicação.
+2. Aguardar carregamento da página.
+
+### Resultado Esperado
+
+* Página inicial exibida.
+* Título correto apresentado ao usuário.
 
 ---
 
-# TC-001
+## CT002 - Abrir Modal de Login
 
-## Título
+### Objetivo
 
-Validar carregamento da página inicial
+Validar a abertura do modal de autenticação.
 
-## Cenário Relacionado
+### Pré-condição
 
-SCN-001
+* Usuário na página inicial.
 
-## Pré-condição
+### Passos
 
-Sistema disponível
+1. Clicar em "Log in".
 
-## Passos
+### Resultado Esperado
 
-1. Acessar DemoBlaze
-
-## Resultado Esperado
-
-Página inicial carregada com sucesso
+* Modal de login exibido.
 
 ---
 
-# TC-002
+## CT003 - Realizar Login com Sucesso
 
-## Título
+### Objetivo
 
-Validar abertura do modal de login
+Validar autenticação com credenciais válidas.
 
-## Cenário Relacionado
+### Pré-condição
 
-SCN-002
+* Modal de login aberto.
 
-## Pré-condição
+### Passos
 
-Usuário na página inicial
+1. Informar usuário válido.
+2. Informar senha válida.
+3. Clicar em Login.
 
-## Passos
+### Resultado Esperado
 
-1. Acessar DemoBlaze
-2. Clicar em Login
-
-## Resultado Esperado
-
-Modal de login exibido
+* Usuário autenticado.
+* Nome do usuário exibido na barra superior.
 
 ---
 
-# TC-003
+## CT004 - Adicionar Produto ao Carrinho
 
-## Título
+### Objetivo
 
-Validar login com credenciais válidas
+Validar inclusão de produto no carrinho.
 
-## Cenário Relacionado
+### Pré-condição
 
-SCN-003
+* Usuário na página inicial.
 
-## Pré-condição
+### Passos
 
-Usuário cadastrado
+1. Selecionar produto Samsung Galaxy S6.
+2. Clicar em Add to Cart.
+3. Confirmar alerta.
 
-## Passos
+### Resultado Esperado
 
-1. Acessar DemoBlaze
-2. Clicar em Login
-3. Informar usuário válido
-4. Informar senha válida
-5. Clicar em Login
-
-## Resultado Esperado
-
-Usuário autenticado
+* Produto adicionado ao carrinho com sucesso.
 
 ---
 
-# TC-004
+## CT005 - Remover Produto do Carrinho
 
-## Título
+### Objetivo
 
-Validar seleção de produto
+Validar remoção de produto do carrinho.
 
-## Cenário Relacionado
+### Pré-condição
 
-SCN-004
+* Produto adicionado ao carrinho.
 
-## Pré-condição
+### Passos
 
-Usuário autenticado
+1. Acessar carrinho.
+2. Validar presença do produto.
+3. Clicar em Delete.
 
-## Passos
+### Resultado Esperado
 
-1. Selecionar produto
-
-## Resultado Esperado
-
-Página de detalhes do produto exibida
+* Produto removido do carrinho.
 
 ---
 
-# TC-005
+## CT006 - Finalizar Compra
 
-## Título
+### Objetivo
 
-Validar adição de produto ao carrinho
+Validar fluxo completo de checkout.
 
-## Cenário Relacionado
+### Pré-condição
 
-SCN-005
+* Produto presente no carrinho.
 
-## Pré-condição
+### Passos
 
-Produto selecionado
+1. Acessar carrinho.
+2. Clicar em Place Order.
+3. Preencher formulário.
+4. Confirmar compra.
 
-## Passos
+### Resultado Esperado
 
-1. Selecionar produto
-2. Clicar em Add to cart
-
-## Resultado Esperado
-
-Produto adicionado ao carrinho
-
----
-
-# TC-006
-
-## Título
-
-Validar conteúdo do carrinho
-
-## Cenário Relacionado
-
-SCN-006
-
-## Pré-condição
-
-Produto adicionado
-
-## Passos
-
-1. Acessar carrinho
-
-## Resultado Esperado
-
-Produto exibido no carrinho
-
----
-
-# TC-007
-
-## Título
-
-Validar finalização da compra
-
-## Cenário Relacionado
-
-SCN-007
-
-## Pré-condição
-
-Carrinho com produto
-
-## Passos
-
-1. Abrir carrinho
-2. Clicar em Place Order
-3. Preencher dados
-4. Confirmar compra
-
-## Resultado Esperado
-
-Compra realizada com sucesso
+* Mensagem "Thank you for your purchase!" exibida.
+* Compra concluída com sucesso.

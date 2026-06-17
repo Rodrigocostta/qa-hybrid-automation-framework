@@ -1,77 +1,59 @@
 # Cenários de Teste
 
-## Cenários de Interface Implementados (UI)
+## SCN001 - Acesso à Página Inicial
 
-### SCN-001
+**Dado** que o usuário acessa a aplicação
 
-Validar carregamento da Página Inicial
+**Quando** a página é carregada
 
----
-
-### SCN-002
-
-Validar abertura do Modal de Login
+**Então** a página inicial deve ser exibida corretamente
 
 ---
 
-### SCN-003
+## SCN002 - Abertura do Modal de Login
 
-Validar Login com credenciais válidas
+**Dado** que o usuário está na página inicial
 
----
+**Quando** clicar em Log in
 
-### SCN-004
-
-Validar seleção de produto
+**Então** o modal de login deve ser exibido
 
 ---
 
-### SCN-005
+## SCN003 - Login com Credenciais Válidas
 
-Validar adição de produto ao carrinho
+**Dado** que o modal de login está aberto
 
----
+**Quando** informar usuário e senha válidos
 
-### SCN-006
-
-Validar conteúdo do carrinho
+**Então** o login deve ser realizado com sucesso
 
 ---
 
-### SCN-007
+## SCN004 - Adicionar Produto ao Carrinho
 
-Validar finalização da compra
+**Dado** que o usuário está navegando na aplicação
 
----
+**Quando** selecionar um produto e adicioná-lo ao carrinho
 
-## Cenários de API Planejados
-
-### API-001
-
-Validar consulta da lista de produtos
+**Então** o produto deve ser incluído com sucesso
 
 ---
 
-### API-002
+## SCN005 - Remover Produto do Carrinho
 
-Validar consulta de detalhes de produto
+**Dado** que existe um produto no carrinho
 
----
+**Quando** o usuário remover o item
 
-### API-003
-
-Validar código de resposta da API
+**Então** o produto não deve mais aparecer no carrinho
 
 ---
 
-### API-004
+## SCN006 - Finalizar Compra
 
-Validar estrutura da resposta
+**Dado** que existe um produto no carrinho
 
----
+**Quando** o usuário concluir o checkout
 
-### API-005
-
-Validar tempo de resposta da API
-
-
+**Então** a compra deve ser realizada com sucesso
