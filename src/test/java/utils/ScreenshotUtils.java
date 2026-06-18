@@ -21,7 +21,8 @@ public class ScreenshotUtils {
 
                         String nomeFinal = nomeArquivo + "_" + gerarTimestamp();
 
-                        File destino = new File("target/screenshots/" + nomeFinal + ".png");
+                        File destino = new File(
+                                        ExecutionManager.getExecutionFolder() + "/screenshots/" + nomeFinal + ".png");
 
                         destino.getParentFile().mkdirs();
 
@@ -56,7 +57,7 @@ public class ScreenshotUtils {
 
                         String nomeFinal = nomeArquivo + "_" + gerarTimestamp();
 
-                        String caminho = "target/screenshots/" + nomeFinal + ".png";
+                        String caminho = ExecutionManager.getExecutionFolder() + "/screenshots/" + nomeFinal + ".png";
 
                         File destino = new File(caminho);
 

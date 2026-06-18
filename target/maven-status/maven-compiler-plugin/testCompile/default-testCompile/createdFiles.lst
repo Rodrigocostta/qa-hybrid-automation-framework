@@ -19,6 +19,7 @@ data\model\CheckoutData.class
 data\dataprovider\LoginDataProvider.class
 tests\ui\LoginTest.class
 pages\HomePage.class
+utils\ExecutionManager.class
 utils\ExtentReportManager.class
 utils\WaitUtils.class
 tests\ui\CheckoutTest.class
