@@ -5,19 +5,21 @@ import org.junit.Test;
 import org.openqa.selenium.Alert;
 
 import base.BaseTest;
+import data.model.CartData;
+import data.model.CheckoutData;
 import pages.CartPage;
 import pages.CheckoutPage;
 import pages.HomePage;
 import pages.ProductPage;
-import utils.WaitUtils;
-import model.CheckoutData;
 import utils.JsonUtils;
+import utils.LoggerUtils;
+import utils.WaitUtils;
 
 public class CheckoutTest extends BaseTest {
 
         @Test
         public void deveFinalizarCompraComSucesso() {
-                logInfo("CT006 - Finalizar Compra com Sucesso");
+                LoggerUtils.info(test, "CT006 - Finalizar Compra com Sucesso");
 
                 HomePage homePage = new HomePage(driver);
 
@@ -25,10 +27,14 @@ public class CheckoutTest extends BaseTest {
 
                 CartPage cartPage = new CartPage(driver);
 
-                logInfo("Selecionando produto Samsung");
-                homePage.clicarProdutoSamsung();
+                LoggerUtils.info(test, "Selecionando produto Samsung");
 
-                logInfo("Adicionando produto ao carrinho");
+                CartData dadosProduto = JsonUtils.carregarCartData();
+
+                LoggerUtils.info(test, "Selecionando produto: " + dadosProduto.getProduto());
+                homePage.clicarProduto(dadosProduto.getProduto());
+
+                LoggerUtils.info(test, "Adicionando produto ao carrinho");
                 productPage.adicionarAoCarrinho();
 
                 Alert alerta = WaitUtils.esperarAlerta(driver);
@@ -36,6 +42,10 @@ public class CheckoutTest extends BaseTest {
                 alerta.accept();
 
                 homePage.clicarCarrinho();
+
+                Assert.assertTrue("Produto não encontrado no carrinho",
+
+                                cartPage.produtoExisteNoCarrinho(dadosProduto.getProduto()));
 
                 cartPage.clicarPlaceOrder();
 
@@ -45,7 +55,7 @@ public class CheckoutTest extends BaseTest {
                                 "Modal de compra deveria estar visível",
                                 checkoutPage.modalEstaVisivel());
 
-                logInfo("Preenchendo dados da compra");
+                LoggerUtils.info(test, "Preenchendo dados da compra");
                 CheckoutData dados = JsonUtils.carregarCheckoutData();
 
                 checkoutPage.preencherFormularioCompra(
@@ -64,7 +74,7 @@ public class CheckoutTest extends BaseTest {
                                 "Thank you for your purchase!",
                                 mensagemSucesso);
 
-                logPass("Compra finalizada com sucesso");
+                LoggerUtils.sucesso(test, "Compra finalizada com sucesso");
                 capturarEvidencia("compra_realizada");
 
                 checkoutPage.clicarOk();

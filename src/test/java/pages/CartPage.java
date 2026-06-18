@@ -7,37 +7,52 @@ import utils.WaitUtils;
 
 public class CartPage extends BasePage {
 
-    private final By produtoSamsung = By.xpath("//tr[contains(.,'Samsung galaxy s6')]");
     private final By botaoDelete = By.linkText("Delete");
     private final By botaoPlaceOrder = By.xpath("//button[text()='Place Order']");
 
     public CartPage(WebDriver driver) {
+
         super(driver);
     }
 
-    public boolean produtoEstaNoCarrinho() {
-        return isDisplayed(produtoSamsung);
+    public boolean produtoExisteNoCarrinho(
+            String produto) {
+
+        try {
+
+            By produtoCarrinho = By.xpath(
+                    "//tr[contains(.,'" + produto + "')]");
+
+            WaitUtils.esperarElementoVisivel(
+                    driver,
+                    produtoCarrinho);
+
+            return true;
+
+        } catch (Exception e) {
+
+            return false;
+        }
     }
 
     public void removerProduto() {
+
         click(botaoDelete);
     }
 
-    public void aguardarRemocaoProduto() {
+    public void aguardarRemocaoProduto(
+            String produto) {
+
+        By produtoCarrinho = By.xpath(
+                "//tr[contains(.,'" + produto + "')]");
 
         WaitUtils.esperarProdutoRemovido(
                 driver,
-                produtoSamsung);
-    }
-
-    public boolean produtoExisteNoCarrinho() {
-
-        return driver.findElements(
-                By.xpath("//tr[contains(.,'Samsung galaxy s6')]"))
-                .size() > 0;
+                produtoCarrinho);
     }
 
     public void clicarPlaceOrder() {
+
         click(botaoPlaceOrder);
     }
 }

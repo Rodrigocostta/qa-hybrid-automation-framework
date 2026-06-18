@@ -4,55 +4,64 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import base.BaseTest;
-import data.TestData;
+import data.model.LoginData;
 import pages.HomePage;
 import pages.LoginPage;
+import utils.JsonUtils;
+import utils.LoggerUtils;
 
 public class LoginTest extends BaseTest {
 
-    @Test
-    public void deveAbrirModalLogin() {
-        logInfo("CT002 - Abrir Modal de Login");
+        @Test
+        public void deveAbrirModalLogin() {
+                LoggerUtils.info(test, "CT002 - Abrir Modal de Login");
 
-        logInfo("acessando pagina inicial");
-        HomePage homePage = new HomePage(driver);
+                LoggerUtils.info(test, "acessando pagina inicial");
+                HomePage homePage = new HomePage(driver);
 
-        homePage.clicarLogin();
+                homePage.clicarLogin();
 
-        logPass("Modal de login exibido com sucesso");
-        Assert.assertTrue(
-                "Modal de login deveria estar visível",
-                homePage.modalLoginEstaVisivel());
+                capturarEvidencia("modal_login");
+                LoggerUtils.sucesso(test, "Modal de login exibido com sucesso");
+                Assert.assertTrue(
+                                "Modal de login deveria estar visível",
+                                homePage.modalLoginEstaVisivel());
 
-    }
+        }
 
-    @Test
-    public void deveRealizarLoginComSucesso() {
-        logInfo("CT003 - Realizar Login com Sucesso");
+        @Test
+        public void deveRealizarLoginComSucesso() {
+                LoggerUtils.info(test, "CT003 - Realizar Login com Sucesso");
 
-        logInfo("acessando pagina inicial");
-        HomePage homePage = new HomePage(driver);
+                LoggerUtils.info(test, "acessando pagina inicial");
+                HomePage homePage = new HomePage(driver);
 
-        LoginPage loginPage = new LoginPage(driver);
+                LoginPage loginPage = new LoginPage(driver);
 
-        logInfo("acessando modal de login");
-        homePage.clicarLogin();
+                LoggerUtils.info(test, "acessando modal de login");
+                homePage.clicarLogin();
 
-        logInfo("inserindo credenciais de login");
-        loginPage.enterUsername(TestData.USERNAME);
-        loginPage.enterPassword(TestData.PASSWORD);
+                LoggerUtils.info(test, "inserindo credenciais de login");
 
-        logInfo("clicando em login");
-        loginPage.clickLogin();
+                LoginData dados = JsonUtils.carregarLoginData();
 
-        String usuarioLogado = loginPage.obterUsuarioLogado();
+                loginPage.enterUsername(
+                                dados.getUsername());
 
-        Assert.assertEquals("Usuário não logado",
-                "Welcome Qa_Rodrigo", usuarioLogado);
+                loginPage.enterPassword(
+                                dados.getPassword());
 
-        logPass("Login realizado com sucesso");
-        capturarEvidencia("login_realizado");
+                LoggerUtils.info(test, "clicando em login");
+                loginPage.clickLogin();
 
-    }
+                String usuarioLogado = loginPage.obterUsuarioLogado();
+
+                Assert.assertEquals("Usuário não logado",
+                                "Welcome Qa_Rodrigo", usuarioLogado);
+
+                LoggerUtils.sucesso(test, "Login realizado com sucesso");
+                capturarEvidencia("login_realizado");
+
+        }
 
 }

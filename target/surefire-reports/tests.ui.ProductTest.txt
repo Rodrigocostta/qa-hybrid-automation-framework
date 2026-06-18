@@ -1,17 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: tests.ui.ProductTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.554 s <<< FAILURE! -- in tests.ui.ProductTest
-tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho -- Time elapsed: 7.538 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.24 s <<< FAILURE! -- in tests.ui.ProductTest
+tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho -- Time elapsed: 10.23 s <<< ERROR!
 org.openqa.selenium.NoAlertPresentException: 
 no such alert
-  (Session info: chrome=149.0.7827.114)
+  (Session info: chrome=149.0.7827.115)
 Build info: version: '4.41.0', revision: '9fc754f'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [249c29d01445badb2b540f8440365d75, acceptAlert {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.114, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\rhodr\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58162}, goog:processID: 1720, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58162/devtoo..., se:cdpVersion: 149.0.7827.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 249c29d01445badb2b540f8440365d75
+Command: [1fbad751aad10111d9561bc3a3952144, acceptAlert {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.115, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\rhodr\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52503}, goog:processID: 16580, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52503/devtoo..., se:cdpVersion: 149.0.7827.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1fbad751aad10111d9561bc3a3952144
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -22,7 +22,7 @@ Session ID: 249c29d01445badb2b540f8440365d75
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:686)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:690)
 	at org.openqa.selenium.remote.RemoteWebDriver$RemoteAlert.accept(RemoteWebDriver.java:1346)
-	at tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho(ProductTest.java:44)
+	at tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho(ProductTest.java:45)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)

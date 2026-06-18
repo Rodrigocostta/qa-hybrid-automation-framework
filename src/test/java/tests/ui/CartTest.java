@@ -5,16 +5,22 @@ import org.junit.Test;
 import org.openqa.selenium.Alert;
 
 import base.BaseTest;
+import data.model.CartData;
 import pages.CartPage;
 import pages.HomePage;
 import pages.ProductPage;
+import utils.JsonUtils;
+import utils.LoggerUtils;
 import utils.WaitUtils;
 
 public class CartTest extends BaseTest {
 
         @Test
-        public void deveRemoverProdutoDoCarrinho() throws InterruptedException {
-                logInfo("CT005 - Remover Produto do Carrinho");
+        public void deveRemoverProdutoDoCarrinho() {
+
+                LoggerUtils.info(
+                                test,
+                                "CT005 - Remover Produto do Carrinho");
 
                 HomePage homePage = new HomePage(driver);
 
@@ -22,34 +28,57 @@ public class CartTest extends BaseTest {
 
                 CartPage cartPage = new CartPage(driver);
 
-                logInfo("Selecionando produto Samsung");
-                homePage.clicarProdutoSamsung();
+                CartData dadosProduto = JsonUtils.carregarCartData();
 
-                logInfo("Adicionando produto ao carrinho");
+                LoggerUtils.info(
+                                test,
+                                "Selecionando produto: "
+                                                + dadosProduto.getProduto());
+
+                homePage.clicarProduto(
+                                dadosProduto.getProduto());
+
+                LoggerUtils.info(
+                                test,
+                                "Adicionando produto ao carrinho");
+
                 productPage.adicionarAoCarrinho();
 
                 Alert alerta = WaitUtils.esperarAlerta(driver);
 
                 alerta.accept();
 
-                logInfo("Acessando carrinho");
+                LoggerUtils.info(
+                                test,
+                                "Acessando carrinho");
+
                 homePage.clicarCarrinho();
 
                 Assert.assertTrue(
                                 "Produto não encontrado no carrinho",
-                                cartPage.produtoExisteNoCarrinho());
+                                cartPage.produtoExisteNoCarrinho(
+                                                dadosProduto.getProduto()));
 
-                logInfo("Removendo produto do carrinho");
+                LoggerUtils.info(
+                                test,
+                                "Removendo produto do carrinho");
+
                 cartPage.removerProduto();
-                cartPage.aguardarRemocaoProduto();
 
-                logPass("Produto removido do carrinho com sucesso");
-                capturarEvidencia("produto_removido");
+                cartPage.aguardarRemocaoProduto(
+                                dadosProduto.getProduto());
+
+                LoggerUtils.sucesso(
+                                test,
+                                "Produto removido do carrinho com sucesso");
+
+                capturarEvidencia(
+                                "produto_removido");
 
                 Assert.assertFalse(
                                 "Produto deveria ter sido removido",
-                                cartPage.produtoExisteNoCarrinho());
-
+                                cartPage.produtoExisteNoCarrinho(
+                                                dadosProduto.getProduto()));
         }
 
 }

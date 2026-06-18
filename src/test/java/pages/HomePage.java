@@ -29,8 +29,10 @@ public class HomePage extends BasePage {
     }
 
     /* Produto Samsung */
-    public void clicarProdutoSamsung() {
-        click(produtoSamsung);
+    public void clicarProduto(
+            String produto) {
+
+        click(By.linkText(produto));
     }
 
     public void clicarCarrinho() {

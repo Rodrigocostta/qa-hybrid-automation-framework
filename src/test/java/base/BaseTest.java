@@ -53,8 +53,26 @@ public class BaseTest {
         protected void succeeded(
                 Description description) {
 
-            test.pass("Teste executado com sucesso");
+            try {
 
+                String caminhoScreenshot = ScreenshotUtils
+                        .capturarRetornandoCaminho(
+                                driver,
+                                description.getMethodName()
+                                        + "_sucesso");
+
+                test.pass(
+                        "Teste executado com sucesso");
+
+                test.addScreenCaptureFromPath(
+                        caminhoScreenshot);
+
+            } catch (Exception e) {
+
+                test.warning(
+                        "Não foi possível anexar screenshot de sucesso");
+
+            }
         }
 
         /* marca o teste como falho */

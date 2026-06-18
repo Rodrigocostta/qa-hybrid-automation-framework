@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -84,14 +85,43 @@ public class WaitUtils {
 
         public static void esperarProdutoRemovido(
                         WebDriver driver,
-                        By produtoCarrinho) {
+                        By locator) {
 
                 WebDriverWait wait = new WebDriverWait(
                                 driver,
                                 Duration.ofSeconds(10));
 
                 wait.until(
-                                ExpectedConditions.invisibilityOfElementLocated(
-                                                produtoCarrinho));
+                                ExpectedConditions
+                                                .invisibilityOfElementLocated(
+                                                                locator));
+        }
+
+        public static boolean esperarElementoInvisivel(
+                        WebDriver driver,
+                        By locator) {
+
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(10));
+
+                return wait.until(
+                                ExpectedConditions
+                                                .invisibilityOfElementLocated(
+                                                                locator));
+        }
+
+        public static WebElement esperarPresencaElemento(
+                        WebDriver driver,
+                        By locator) {
+
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(10));
+
+                return wait.until(
+                                ExpectedConditions
+                                                .presenceOfElementLocated(
+                                                                locator));
         }
 }

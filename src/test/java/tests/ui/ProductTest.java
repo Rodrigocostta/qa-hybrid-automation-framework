@@ -7,6 +7,7 @@ import org.openqa.selenium.Alert;
 import base.BaseTest;
 import pages.HomePage;
 import pages.ProductPage;
+import utils.LoggerUtils;
 import utils.WaitUtils;
 
 public class ProductTest extends BaseTest {
@@ -14,20 +15,20 @@ public class ProductTest extends BaseTest {
     /* Adiciona Produto ao Carrinho */
     @Test
     public void deveAdicionarProdutoAoCarrinho() {
-        logInfo("CT004 - Adicionar Produto ao Carrinho");
+        LoggerUtils.info(test, "CT004 - Adicionar Produto ao Carrinho");
 
         HomePage homePage = new HomePage(driver);
 
         ProductPage productPage = new ProductPage(driver);
 
-        logInfo("Selecionando produto Samsung");
-        homePage.clicarProdutoSamsung();
+        LoggerUtils.info(test, "Selecionando produto Samsung");
+        homePage.clicarProduto("Samsung galaxy s6");
 
         Assert.assertEquals("Nome do produto incorreto",
                 "Samsung galaxy s6",
                 productPage.obterNomeProduto());
 
-        logInfo("Adicionando produto ao carrinho");
+        LoggerUtils.info(test, "Adicionando produto ao carrinho");
         productPage.adicionarAoCarrinho();
 
         Alert alerta = WaitUtils.esperarAlerta(driver);
@@ -38,7 +39,7 @@ public class ProductTest extends BaseTest {
                 "Mensagem de produto adicionado incorreta",
                 "Product added",
                 mensagem);
-        logPass("Produto adicionado ao carrinho com sucesso");
+        LoggerUtils.sucesso(test, "Produto adicionado ao carrinho com sucesso");
         capturarEvidencia("produto_adicionado");
 
         alerta.accept();
