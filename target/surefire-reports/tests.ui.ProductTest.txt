@@ -1,28 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: tests.ui.ProductTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.158 s <<< FAILURE! -- in tests.ui.ProductTest
-tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho -- Time elapsed: 7.150 s <<< ERROR!
-org.openqa.selenium.NoAlertPresentException: 
-no such alert
-  (Session info: chrome=149.0.7827.115)
-Build info: version: '4.41.0', revision: '9fc754f'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [dda8f8bb45cef8f68149acd34b090431, acceptAlert {}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.115, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\rhodr\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51733}, goog:processID: 12920, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51733/devtoo..., se:cdpVersion: 149.0.7827.115, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: dda8f8bb45cef8f68149acd34b090431
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:604)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:686)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:690)
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteAlert.accept(RemoteWebDriver.java:1346)
-	at tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho(ProductTest.java:45)
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.478 s <<< FAILURE! -- in tests.ui.ProductTest
+tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho -- Time elapsed: 4.469 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:756)
+	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:749)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at utils.WaitUtils.esperarElementoClicavel(WaitUtils.java:68)
+	at pages.BasePage.click(BasePage.java:18)
+	at pages.HomePage.clicarProduto(HomePage.java:35)
+	at tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho(ProductTest.java:23)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)

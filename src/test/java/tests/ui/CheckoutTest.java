@@ -7,47 +7,45 @@ import org.openqa.selenium.Alert;
 import base.BaseTest;
 import data.model.CartData;
 import data.model.CheckoutData;
-import pages.CartPage;
 import pages.CheckoutPage;
-import pages.HomePage;
-import pages.ProductPage;
+import pages.PageManager;
 import utils.JsonUtils;
 import utils.LoggerUtils;
 import utils.WaitUtils;
 
 public class CheckoutTest extends BaseTest {
 
+        PageManager pages = new PageManager(driver);
+
         @Test
         public void deveFinalizarCompraComSucesso() {
-                LoggerUtils.info(test, "CT006 - Finalizar Compra com Sucesso");
+                LoggerUtils.info(test,
+                                "CT006 - Finalizar Compra com Sucesso");
 
-                HomePage homePage = new HomePage(driver);
-
-                ProductPage productPage = new ProductPage(driver);
-
-                CartPage cartPage = new CartPage(driver);
-
-                LoggerUtils.info(test, "Selecionando produto Samsung");
+                LoggerUtils.info(test,
+                                "Selecionando produto Samsung");
 
                 CartData dadosProduto = JsonUtils.carregarCartData();
 
-                LoggerUtils.info(test, "Selecionando produto: " + dadosProduto.getProduto());
-                homePage.clicarProduto(dadosProduto.getProduto());
+                LoggerUtils.info(test,
+                                "Selecionando produto: " + dadosProduto.getProduto());
+                pages.homePage().clicarProduto(dadosProduto.getProduto());
 
-                LoggerUtils.info(test, "Adicionando produto ao carrinho");
-                productPage.adicionarAoCarrinho();
+                LoggerUtils.info(test,
+                                "Adicionando produto ao carrinho");
+                pages.productPage().adicionarAoCarrinho();
 
                 Alert alerta = WaitUtils.esperarAlerta(driver);
-
                 alerta.accept();
 
-                homePage.clicarCarrinho();
+                pages.homePage().clicarCarrinho();
 
-                Assert.assertTrue("Produto não encontrado no carrinho",
+                Assert.assertTrue(
+                                "Produto não encontrado no carrinho",
 
-                                cartPage.produtoExisteNoCarrinho(dadosProduto.getProduto()));
+                                pages.cartPage().produtoExisteNoCarrinho(dadosProduto.getProduto()));
 
-                cartPage.clicarPlaceOrder();
+                pages.cartPage().clicarPlaceOrder();
 
                 CheckoutPage checkoutPage = new CheckoutPage(driver);
 
@@ -55,10 +53,12 @@ public class CheckoutTest extends BaseTest {
                                 "Modal de compra deveria estar visível",
                                 checkoutPage.modalEstaVisivel());
 
-                LoggerUtils.info(test, "Preenchendo dados da compra");
+                LoggerUtils.info(test,
+                                "Preenchendo dados da compra");
+
                 CheckoutData dados = JsonUtils.carregarCheckoutData();
 
-                checkoutPage.preencherFormularioCompra(
+                pages.checkoutPage().preencherFormularioCompra(
                                 dados.getNome(),
                                 dados.getPais(),
                                 dados.getCidade(),
@@ -66,9 +66,10 @@ public class CheckoutTest extends BaseTest {
                                 dados.getMes(),
                                 dados.getAno());
 
-                checkoutPage.clicarPurchase();
+                pages.checkoutPage().clicarPurchase();
 
-                String mensagemSucesso = checkoutPage.obterMensagemSucesso();
+                String mensagemSucesso = pages.checkoutPage().obterMensagemSucesso();
+
                 Assert.assertEquals(
                                 "Mensagem de compra diferente do esperado",
                                 "Thank you for your purchase!",
@@ -77,7 +78,7 @@ public class CheckoutTest extends BaseTest {
                 LoggerUtils.sucesso(test, "Compra finalizada com sucesso");
                 capturarEvidencia("compra_realizada");
 
-                checkoutPage.clicarOk();
+                pages.checkoutPage().clicarOk();
 
         }
 

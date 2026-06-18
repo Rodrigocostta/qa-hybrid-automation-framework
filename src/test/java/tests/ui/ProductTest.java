@@ -3,33 +3,33 @@ package tests.ui;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
-
 import base.BaseTest;
-import pages.HomePage;
-import pages.ProductPage;
+import pages.PageManager;
 import utils.LoggerUtils;
 import utils.WaitUtils;
 
 public class ProductTest extends BaseTest {
 
+    PageManager pages = new PageManager(driver);
+
     /* Adiciona Produto ao Carrinho */
     @Test
     public void deveAdicionarProdutoAoCarrinho() {
-        LoggerUtils.info(test, "CT004 - Adicionar Produto ao Carrinho");
+        LoggerUtils.info(test,
+                "CT004 - Adicionar Produto ao Carrinho");
 
-        HomePage homePage = new HomePage(driver);
+        LoggerUtils.info(test,
+                "Selecionando produto Samsung");
+        pages.homePage().clicarProduto("Samsung galaxy s6");
 
-        ProductPage productPage = new ProductPage(driver);
-
-        LoggerUtils.info(test, "Selecionando produto Samsung");
-        homePage.clicarProduto("Samsung galaxy s6");
-
-        Assert.assertEquals("Nome do produto incorreto",
+        Assert.assertEquals(
+                "Nome do produto incorreto",
                 "Samsung galaxy s6",
-                productPage.obterNomeProduto());
+                pages.productPage().obterNomeProduto());
 
-        LoggerUtils.info(test, "Adicionando produto ao carrinho");
-        productPage.adicionarAoCarrinho();
+        LoggerUtils.info(test,
+                "Adicionando produto ao carrinho");
+        pages.productPage().adicionarAoCarrinho();
 
         Alert alerta = WaitUtils.esperarAlerta(driver);
 
@@ -39,7 +39,8 @@ public class ProductTest extends BaseTest {
                 "Mensagem de produto adicionado incorreta",
                 "Product added",
                 mensagem);
-        LoggerUtils.sucesso(test, "Produto adicionado ao carrinho com sucesso");
+        LoggerUtils.sucesso(test,
+                "Produto adicionado ao carrinho com sucesso");
         capturarEvidencia("produto_adicionado");
 
         alerta.accept();

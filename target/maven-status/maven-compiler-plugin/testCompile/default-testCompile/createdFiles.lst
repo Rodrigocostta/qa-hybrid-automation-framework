@@ -4,6 +4,7 @@ pages\ProductPage.class
 pages\LoginPage.class
 data\model\LoginData.class
 pages\CartPage.class
+pages\PageManager.class
 base\BaseTest.class
 data\dataprovider\CartDataProvider.class
 data\TestData.class
