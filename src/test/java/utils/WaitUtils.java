@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import config.ConfigManager;
+
 public class WaitUtils {
 
         private static final int TIMEOUT = 10;
@@ -23,7 +25,10 @@ public class WaitUtils {
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 wait.until(
                                 ExpectedConditions.visibilityOfElementLocated(locator));
@@ -37,7 +42,10 @@ public class WaitUtils {
                         By locator,
                         String texto) {
 
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 wait.until(
                                 ExpectedConditions.textToBePresentInElementLocated(
@@ -52,7 +60,10 @@ public class WaitUtils {
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 wait.until(
                                 ExpectedConditions.elementToBeClickable(locator));
@@ -65,7 +76,10 @@ public class WaitUtils {
                         WebDriver driver,
                         String textoUrl) {
 
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 wait.until(
                                 ExpectedConditions.urlContains(textoUrl));
@@ -77,7 +91,10 @@ public class WaitUtils {
         public static Alert esperarAlerta(
                         WebDriver driver) {
 
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT));
+                WebDriverWait wait = new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 return wait.until(
                                 ExpectedConditions.alertIsPresent());
@@ -89,7 +106,8 @@ public class WaitUtils {
 
                 WebDriverWait wait = new WebDriverWait(
                                 driver,
-                                Duration.ofSeconds(10));
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 wait.until(
                                 ExpectedConditions
@@ -103,7 +121,8 @@ public class WaitUtils {
 
                 WebDriverWait wait = new WebDriverWait(
                                 driver,
-                                Duration.ofSeconds(10));
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 return wait.until(
                                 ExpectedConditions
@@ -117,7 +136,8 @@ public class WaitUtils {
 
                 WebDriverWait wait = new WebDriverWait(
                                 driver,
-                                Duration.ofSeconds(10));
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
 
                 return wait.until(
                                 ExpectedConditions

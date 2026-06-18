@@ -7,6 +7,7 @@ C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framewo
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\utils\JsonUtils.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\pages\BasePage.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\utils\ExtentReportManager.java
+C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\config\ConfigManager.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\tests\ui\CartTest.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\pages\ProductPage.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\tests\ui\CheckoutTest.java
@@ -20,6 +21,5 @@ C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framewo
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\utils\ScreenshotUtils.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\data\model\CheckoutData.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\utils\LoggerUtils.java
-C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\config\Config.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\data\model\CartData.java
 C:\Users\rhodr\OneDrive\Área de Trabalho\PORTFOLIO\qa_hybrid_automation_framework\src\test\java\data\TestData.java

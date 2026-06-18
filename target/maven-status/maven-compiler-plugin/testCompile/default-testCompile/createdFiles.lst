@@ -8,6 +8,7 @@ base\BaseTest.class
 data\dataprovider\CartDataProvider.class
 data\TestData.class
 utils\LoggerUtils.class
+config\ConfigManager.class
 pages\CheckoutPage.class
 utils\JsonUtils.class
 utils\ScreenshotUtils.class
@@ -18,7 +19,6 @@ data\model\CheckoutData.class
 data\dataprovider\LoginDataProvider.class
 tests\ui\LoginTest.class
 pages\HomePage.class
-config\Config.class
 utils\ExtentReportManager.class
 utils\WaitUtils.class
 tests\ui\CheckoutTest.class

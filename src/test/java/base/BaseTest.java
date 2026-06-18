@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import config.Config;
+import config.ConfigManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.ExtentReportManager;
 import utils.ScreenshotUtils;
@@ -129,7 +129,8 @@ public class BaseTest {
         driver.manage().window().maximize();
 
         /* URL Base da aplicação */
-        driver.get(Config.BASE_URL);
+        driver.get(
+                ConfigManager.getBaseUrl());
     }
 
     @After
