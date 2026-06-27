@@ -15,8 +15,6 @@ import utils.WaitUtils;
 
 public class CheckoutTest extends BaseTest {
 
-        PageManager pages = new PageManager(driver);
-
         @Test
         public void deveFinalizarCompraComSucesso() {
                 LoggerUtils.info(test,

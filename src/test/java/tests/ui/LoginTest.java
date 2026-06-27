@@ -10,8 +10,6 @@ import utils.LoggerUtils;
 
 public class LoginTest extends BaseTest {
 
-        PageManager pages = new PageManager(driver);
-
         @Test
         public void deveAbrirModalLogin() {
                 LoggerUtils.info(test,

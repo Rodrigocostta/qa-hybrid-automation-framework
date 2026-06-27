@@ -7,7 +7,7 @@ public class HomePage extends BasePage {
 
     private final By botaoLogin = By.id("login2");
     private final By modalLogin = By.id("logInModal");
-    private final By produtoSamsung = By.linkText("Samsung galaxy s6");
+
     private final By menuCarrinho = By.id("cartur");
 
     public HomePage(WebDriver driver) {

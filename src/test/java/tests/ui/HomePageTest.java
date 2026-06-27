@@ -9,8 +9,6 @@ import utils.LoggerUtils;
 
 public class HomePageTest extends BaseTest {
 
-        PageManager pages = new PageManager(driver);
-
         @Test
         public void deveAbrirPaginaInicial() {
 

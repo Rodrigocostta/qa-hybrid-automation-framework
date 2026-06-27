@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">jun. 18, 2026 08:05:22 PM</span></a>
+<a href="#"><span class="badge badge-primary">jun. 27, 2026 09:33:16 AM</span></a>
 </li>
 </ul>
 </div>
@@ -72,6 +72,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="warning" href="#"><span>Warning</span><span class="status warning"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -79,25 +80,25 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="warning" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">deveRemoverProdutoDoCarrinho</p>
             <p class="text-sm">
-              <span>20:05:23</span> / <span>00:00:18:712</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>09:33:16</span> / <span>00:00:28:219</span>
+              <span class="badge warning-bg log float-right">Warning</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">deveRemoverProdutoDoCarrinho</h5>
-<span class='badge badge-success'>06.18.2026 20:05:23</span>
-<span class='badge badge-danger'>06.18.2026 20:05:41</span>
-<span class='badge badge-default'>00:00:18:712</span>
+<h5 class="test-status text-warning">deveRemoverProdutoDoCarrinho</h5>
+<span class='badge badge-success'>06.27.2026 09:33:16</span>
+<span class='badge badge-danger'>06.27.2026 09:33:44</span>
+<span class='badge badge-default'>00:00:28:219</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -110,61 +111,58 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:38</td>
+        <td>09:33:20</td>
         <td>
           CT005 - Remover Produto do Carrinho
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:39</td>
+        <td>09:33:20</td>
         <td>
           Selecionando produto: Samsung galaxy s6
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>20:05:41</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:21</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:756)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:749)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	at utils.WaitUtils.esperarElementoClicavel(WaitUtils.java:68)
-	at pages.BasePage.click(BasePage.java:18)
-	at pages.HomePage.clicarProduto(HomePage.java:35)
-	at tests.ui.CartTest.deveRemoverProdutoDoCarrinho(CartTest.java:29)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</textarea>
-          
+          Adicionando produto ao carrinho
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:22</td>
+        <td>
+          Acessando carrinho
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:23</td>
+        <td>
+          Removendo produto do carrinho
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:33:34</td>
+        <td>
+          Produto removido do carrinho com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:33:44</td>
+        <td>
+          Teste executado com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log warning-bg">Warning</span></td>
+        <td>09:33:44</td>
+        <td>
+          Não foi possível anexar screenshot de sucesso
         </td>
       </tr>
   </tbody>
@@ -172,25 +170,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="2"
+        <li class="test-item"  status="warning" test-id="2"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">deveFinalizarCompraComSucesso</p>
             <p class="text-sm">
-              <span>20:05:43</span> / <span>00:00:05:356</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>09:33:45</span> / <span>00:00:07:808</span>
+              <span class="badge warning-bg log float-right">Warning</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">deveFinalizarCompraComSucesso</h5>
-<span class='badge badge-success'>06.18.2026 20:05:43</span>
-<span class='badge badge-danger'>06.18.2026 20:05:48</span>
-<span class='badge badge-default'>00:00:05:356</span>
+<h5 class="test-status text-warning">deveFinalizarCompraComSucesso</h5>
+<span class='badge badge-success'>06.27.2026 09:33:45</span>
+<span class='badge badge-danger'>06.27.2026 09:33:53</span>
+<span class='badge badge-default'>00:00:07:808</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -203,68 +201,58 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:48</td>
+        <td>09:33:47</td>
         <td>
           CT006 - Finalizar Compra com Sucesso
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:48</td>
+        <td>09:33:47</td>
         <td>
           Selecionando produto Samsung
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:48</td>
+        <td>09:33:47</td>
         <td>
           Selecionando produto: Samsung galaxy s6
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>20:05:48</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:48</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:756)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:749)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	at utils.WaitUtils.esperarElementoClicavel(WaitUtils.java:68)
-	at pages.BasePage.click(BasePage.java:18)
-	at pages.HomePage.clicarProduto(HomePage.java:35)
-	at tests.ui.CheckoutTest.deveFinalizarCompraComSucesso(CheckoutTest.java:32)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</textarea>
-          
+          Adicionando produto ao carrinho
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:51</td>
+        <td>
+          Preenchendo dados da compra
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:33:52</td>
+        <td>
+          Compra finalizada com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:33:53</td>
+        <td>
+          Teste executado com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log warning-bg">Warning</span></td>
+        <td>09:33:53</td>
+        <td>
+          Não foi possível anexar screenshot de sucesso
         </td>
       </tr>
   </tbody>
@@ -272,25 +260,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="3"
+        <li class="test-item"  status="warning" test-id="3"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">deveAbrirPaginaInicial</p>
             <p class="text-sm">
-              <span>20:05:48</span> / <span>00:00:05:709</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>09:33:53</span> / <span>00:00:02:648</span>
+              <span class="badge warning-bg log float-right">Warning</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">deveAbrirPaginaInicial</h5>
-<span class='badge badge-success'>06.18.2026 20:05:48</span>
-<span class='badge badge-danger'>06.18.2026 20:05:54</span>
-<span class='badge badge-default'>00:00:05:709</span>
+<h5 class="test-status text-warning">deveAbrirPaginaInicial</h5>
+<span class='badge badge-success'>06.27.2026 09:33:53</span>
+<span class='badge badge-danger'>06.27.2026 09:33:55</span>
+<span class='badge badge-default'>00:00:02:648</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -303,56 +291,44 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:53</td>
+        <td>09:33:55</td>
         <td>
           CT001 - Abrir Página Inicial
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:53</td>
+        <td>09:33:55</td>
         <td>
           Abrindo página inicial
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>20:05:54</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:55</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.getTitle()" because "this.driver" is null
-	at pages.HomePage.obterTituloPagina(HomePage.java:18)
-	at tests.ui.HomePageTest.deveAbrirPaginaInicial(HomePageTest.java:23)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</textarea>
-          
+          Título encontrado: STORE
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:33:55</td>
+        <td>
+          Título da página inicial esperado encontrado
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:33:55</td>
+        <td>
+          Teste executado com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log warning-bg">Warning</span></td>
+        <td>09:33:55</td>
+        <td>
+          Não foi possível anexar screenshot de sucesso
         </td>
       </tr>
   </tbody>
@@ -360,25 +336,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="4"
+        <li class="test-item"  status="warning" test-id="4"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">deveRealizarLoginComSucesso</p>
             <p class="text-sm">
-              <span>20:05:54</span> / <span>00:00:04:191</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>09:33:55</span> / <span>00:00:04:716</span>
+              <span class="badge warning-bg log float-right">Warning</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">deveRealizarLoginComSucesso</h5>
-<span class='badge badge-success'>06.18.2026 20:05:54</span>
-<span class='badge badge-danger'>06.18.2026 20:05:58</span>
-<span class='badge badge-default'>00:00:04:191</span>
+<h5 class="test-status text-warning">deveRealizarLoginComSucesso</h5>
+<span class='badge badge-success'>06.27.2026 09:33:55</span>
+<span class='badge badge-danger'>06.27.2026 09:34:00</span>
+<span class='badge badge-default'>00:00:04:716</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -391,68 +367,58 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:58</td>
+        <td>09:33:57</td>
         <td>
           CT003 - Realizar Login com Sucesso
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:58</td>
+        <td>09:33:57</td>
         <td>
           acessando pagina inicial
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:05:58</td>
+        <td>09:33:57</td>
         <td>
           acessando modal de login
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>20:05:58</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:57</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:756)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:749)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	at utils.WaitUtils.esperarElementoClicavel(WaitUtils.java:68)
-	at pages.BasePage.click(BasePage.java:18)
-	at pages.HomePage.clicarLogin(HomePage.java:23)
-	at tests.ui.LoginTest.deveRealizarLoginComSucesso(LoginTest.java:44)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</textarea>
-          
+          inserindo credenciais de login
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:33:58</td>
+        <td>
+          clicando em login
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:34:00</td>
+        <td>
+          Login realizado com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:34:00</td>
+        <td>
+          Teste executado com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log warning-bg">Warning</span></td>
+        <td>09:34:00</td>
+        <td>
+          Não foi possível anexar screenshot de sucesso
         </td>
       </tr>
   </tbody>
@@ -460,25 +426,25 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="5"
+        <li class="test-item"  status="warning" test-id="5"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">deveAbrirModalLogin</p>
             <p class="text-sm">
-              <span>20:05:58</span> / <span>00:00:03:602</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>09:34:00</span> / <span>00:00:02:742</span>
+              <span class="badge warning-bg log float-right">Warning</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">deveAbrirModalLogin</h5>
-<span class='badge badge-success'>06.18.2026 20:05:58</span>
-<span class='badge badge-danger'>06.18.2026 20:06:02</span>
-<span class='badge badge-default'>00:00:03:602</span>
+<h5 class="test-status text-warning">deveAbrirModalLogin</h5>
+<span class='badge badge-success'>06.27.2026 09:34:00</span>
+<span class='badge badge-danger'>06.27.2026 09:34:03</span>
+<span class='badge badge-default'>00:00:02:742</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -491,61 +457,37 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:06:01</td>
+        <td>09:34:02</td>
         <td>
           CT002 - Abrir Modal de Login
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:06:01</td>
+        <td>09:34:02</td>
         <td>
           acessando pagina inicial
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>20:06:02</td>
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:34:02</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:756)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:749)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	at utils.WaitUtils.esperarElementoClicavel(WaitUtils.java:68)
-	at pages.BasePage.click(BasePage.java:18)
-	at pages.HomePage.clicarLogin(HomePage.java:23)
-	at tests.ui.LoginTest.deveAbrirModalLogin(LoginTest.java:23)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
-	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
-	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
-	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
-	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-</textarea>
-          
+          Modal de login exibido com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:34:03</td>
+        <td>
+          Teste executado com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log warning-bg">Warning</span></td>
+        <td>09:34:03</td>
+        <td>
+          Não foi possível anexar screenshot de sucesso
         </td>
       </tr>
   </tbody>
@@ -560,7 +502,7 @@
           <div class="test-detail">
             <p class="name">deveAdicionarProdutoAoCarrinho</p>
             <p class="text-sm">
-              <span>20:06:02</span> / <span>00:00:04:461</span>
+              <span>09:34:03</span> / <span>00:00:04:425</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -569,9 +511,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">deveAdicionarProdutoAoCarrinho</h5>
-<span class='badge badge-success'>06.18.2026 20:06:02</span>
-<span class='badge badge-danger'>06.18.2026 20:06:07</span>
-<span class='badge badge-default'>00:00:04:461</span>
+<span class='badge badge-success'>06.27.2026 09:34:03</span>
+<span class='badge badge-danger'>06.27.2026 09:34:07</span>
+<span class='badge badge-default'>00:00:04:425</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -584,32 +526,57 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:06:06</td>
+        <td>09:34:05</td>
         <td>
           CT004 - Adicionar Produto ao Carrinho
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>20:06:06</td>
+        <td>09:34:05</td>
         <td>
           Selecionando produto Samsung
         </td>
       </tr>
       <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>20:06:07</td>
+        <td><span class="badge log info-bg">Info</span></td>
+        <td>09:34:06</td>
         <td>
-          <textarea readonly class="code-block">java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:756)
-	at org.openqa.selenium.support.ui.ExpectedConditions$22.apply(ExpectedConditions.java:749)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	at utils.WaitUtils.esperarElementoClicavel(WaitUtils.java:68)
-	at pages.BasePage.click(BasePage.java:18)
-	at pages.HomePage.clicarProduto(HomePage.java:35)
-	at tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho(ProductTest.java:23)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+          Adicionando produto ao carrinho
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>09:34:07</td>
+        <td>
+          Produto adicionado ao carrinho com sucesso
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>09:34:07</td>
+        <td>
+          <textarea readonly class="code-block">org.openqa.selenium.NoAlertPresentException: no such alert
+  (Session info: chrome=149.0.7827.199)
+Build info: version: '4.41.0', revision: '9fc754f'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '26.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [57e1c2f3bec6e8688d9132b7b33e0a84, acceptAlert {}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 149.0.7827.199, chrome: {chromedriverVersion: 149.0.7827.155 (07b52360cc1..., userDataDir: C:\Users\rhodr\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62469}, goog:processID: 7356, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62469/devtoo..., se:cdpVersion: 149.0.7827.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 57e1c2f3bec6e8688d9132b7b33e0a84
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:604)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:686)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:690)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteAlert.accept(RemoteWebDriver.java:1346)
+	at tests.ui.ProductTest.deveAdicionarProdutoAoCarrinho(ProductTest.java:44)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
@@ -666,15 +633,15 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log badge-danger'>6</span>
+<span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">java.lang.NullPointerException</p>
-<p class="duration text-sm">6 tests</p>
+<p class="name">org.openqa.selenium.NoAlertPresentException</p>
+<p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>java.lang.NullPointerException</h4>
-<span status="fail" class='badge log badge-danger'>6 failed</span>
+<h4>org.openqa.selenium.NoAlertPresentException</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -687,42 +654,7 @@
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>20:05:23 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='1'>deveRemoverProdutoDoCarrinho</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>20:05:43 PM</td>
-<td>
-<a href="#" class="linked" test-id='2' id='2'>deveFinalizarCompraComSucesso</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>20:05:48 PM</td>
-<td>
-<a href="#" class="linked" test-id='3' id='3'>deveAbrirPaginaInicial</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>20:05:54 PM</td>
-<td>
-<a href="#" class="linked" test-id='4' id='4'>deveRealizarLoginComSucesso</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>20:05:58 PM</td>
-<td>
-<a href="#" class="linked" test-id='5' id='5'>deveAbrirModalLogin</a>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>20:06:02 PM</td>
+<td>09:34:03 AM</td>
 <td>
 <a href="#" class="linked" test-id='6' id='6'>deveAdicionarProdutoAoCarrinho</a>
 </td>
@@ -744,13 +676,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>jun. 18, 2026 08:05:22 PM</h3>
+<h3>jun. 27, 2026 09:33:16 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>jun. 18, 2026 08:06:07 PM</h3>
+<h3>jun. 27, 2026 09:34:07 AM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -762,7 +694,7 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>6</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -783,8 +715,8 @@
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>6</b> tests failed,
-<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+<small data-tooltip='16%'><b>1</b> tests failed,
+<b>0</b> skipped, <b data-tooltip='83%'>5</b> others
 </small>
 </div>
 </div>
@@ -801,10 +733,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
+<div><small data-tooltip='27%'><b>11</b> events passed</small></div>
 <div>
-<small data-tooltip='30%'><b>6</b> events failed,
-<b data-tooltip='%'>14</b> others
+<small data-tooltip='2%'><b>1</b> events failed,
+<b data-tooltip='%'>28</b> others
 </small>
 </div>
 </div>
@@ -820,7 +752,7 @@
 </div></div>
 <script>
 var timeline = {
-"deveRemoverProdutoDoCarrinho":18.712,"deveFinalizarCompraComSucesso":5.356,"deveAbrirPaginaInicial":5.709,"deveRealizarLoginComSucesso":4.191,"deveAbrirModalLogin":3.602,"deveAdicionarProdutoAoCarrinho":4.461
+"deveRemoverProdutoDoCarrinho":28.219,"deveFinalizarCompraComSucesso":7.808,"deveAbrirPaginaInicial":2.648,"deveRealizarLoginComSucesso":4.716,"deveAbrirModalLogin":2.742,"deveAdicionarProdutoAoCarrinho":4.425
 };
 </script>
 <div class="row">
@@ -830,8 +762,8 @@ var timeline = {
 var statusGroup = {
 parentCount: 5,
 passParent: 0,
-failParent: 6,
-warningParent: 0,
+failParent: 1,
+warningParent: 5,
 skipParent: 0,
 childCount: 5,
 passChild: 0,
@@ -846,11 +778,11 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 0,
-failEvents: 6,
-warningEvents: 0,
+passEvents: 11,
+failEvents: 1,
+warningEvents: 5,
 skipEvents: 0,
-infoEvents: 14
+infoEvents: 23
 };
 </script>        </div>
       </div>

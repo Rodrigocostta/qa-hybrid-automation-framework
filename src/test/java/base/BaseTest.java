@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import config.ConfigManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.PageManager;
 import utils.ExtentReportManager;
 import utils.ScreenshotUtils;
 import com.aventstack.extentreports.ExtentReports;
@@ -30,6 +31,7 @@ public class BaseTest {
     protected WebDriver driver;
     protected ExtentReports extent;
     protected ExtentTest test;
+    protected PageManager pages;
     private boolean testeFalhou = false;
 
     @Rule
@@ -103,34 +105,26 @@ public class BaseTest {
     @Before
     public void iniciar() {
 
-        /* inicializa o relatório de extensão */
         extent = ExtentReportManager.getInstance();
-
-        /* baixa o driver automaticamente */
 
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
         prefs.put("profile.password_manager_enabled", false);
-
         options.setExperimentalOption("prefs", prefs);
-
         options.addArguments("--disable-notifications");
         options.addArguments("--incognito");
 
         driver = new ChromeDriver(options);
 
-        driver.manage()
-                .timeouts()
-                .implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-        /* URL Base da aplicação */
-        driver.get(
-                ConfigManager.getBaseUrl());
+        driver.get(ConfigManager.getBaseUrl());
+
+        pages = new PageManager(driver); // <-- criado AQUI, depois que driver existe
     }
 
     @After

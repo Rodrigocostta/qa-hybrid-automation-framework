@@ -13,8 +13,6 @@ import utils.WaitUtils;
 
 public class CartTest extends BaseTest {
 
-        PageManager pages = new PageManager(driver);
-
         @Test
         public void deveRemoverProdutoDoCarrinho() {
 
