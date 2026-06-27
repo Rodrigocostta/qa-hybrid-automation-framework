@@ -100,8 +100,13 @@ public class BaseTest {
 
     };
 
-    /* URL Base da aplicação */
-
+    /*
+     * Inicializa:
+     * - Driver
+     * - Relatório
+     * - Navegador
+     * - URL Base
+     */
     @Before
     public void iniciar() {
 
@@ -130,6 +135,11 @@ public class BaseTest {
         driver.get(ConfigManager.getBaseUrl());
     }
 
+    /*
+     * Finaliza:
+     * - Screenshot de erro
+     * - Encerramento do navegador
+     */
     @After
     public void finalizar() {
 
@@ -146,31 +156,33 @@ public class BaseTest {
         } finally {
 
             if (driver != null) {
+
                 driver.quit();
+
             }
 
         }
     }
 
     /* metodos Extents Reports */
-    protected void capturarEvidencia(String nomeArquivo) {
+    protected void capturarEvidencia(
+            String nomeArquivo) {
 
-        ScreenshotUtils.capturar(
-                driver,
-                nomeArquivo);
-    }
+        String caminho = ScreenshotUtils
+                .capturarRetornandoCaminho(
+                        driver,
+                        nomeArquivo);
 
-    protected void logInfo(String mensagem) {
+        if (test != null && caminho != null) {
 
-        if (test != null) {
-            test.info(mensagem);
-        }
-    }
+            try {
 
-    protected void logPass(String mensagem) {
+                test.addScreenCaptureFromPath(
+                        caminho);
 
-        if (test != null) {
-            test.pass(mensagem);
+            } catch (Exception ignored) {
+            }
+
         }
     }
 
