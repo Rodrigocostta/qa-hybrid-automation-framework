@@ -119,12 +119,15 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        pages = new PageManager(driver);
+
+        driver.manage()
+                .timeouts()
+                .implicitlyWait(Duration.ZERO);
+
         driver.manage().window().maximize();
 
         driver.get(ConfigManager.getBaseUrl());
-
-        pages = new PageManager(driver); // <-- criado AQUI, depois que driver existe
     }
 
     @After
@@ -142,7 +145,9 @@ public class BaseTest {
 
         } finally {
 
-            driver.quit();
+            if (driver != null) {
+                driver.quit();
+            }
 
         }
     }
