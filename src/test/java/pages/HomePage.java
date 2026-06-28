@@ -7,7 +7,6 @@ public class HomePage extends BasePage {
 
     private final By botaoLogin = By.id("login2");
     private final By modalLogin = By.id("logInModal");
-
     private final By menuCarrinho = By.id("cartur");
 
     public HomePage(WebDriver driver) {
@@ -18,17 +17,14 @@ public class HomePage extends BasePage {
         return driver.getTitle();
     }
 
-    /* BOtão de login */
     public void clicarLogin() {
         click(botaoLogin);
     }
 
-    /* Vizualizar modal */
     public boolean modalLoginEstaVisivel() {
         return isDisplayed(modalLogin);
     }
 
-    /* Produto Samsung */
     public void clicarProduto(
             String produto) {
 

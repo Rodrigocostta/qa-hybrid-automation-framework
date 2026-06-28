@@ -2,6 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+/**
+ * Responsável por fornecer instâncias
+ * dos Page Objects.
+ */
 public class PageManager {
 
     private final WebDriver driver;

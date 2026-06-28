@@ -1,9 +1,10 @@
 package utils;
 
 import java.io.File;
-//import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,55 +12,36 @@ import org.openqa.selenium.WebDriver;
 
 public class ScreenshotUtils {
 
-        public static void capturar(WebDriver driver, String nomeArquivo) {
-
-                try {
-
-                        System.out.println("Capturando screenshot: " + nomeArquivo);
-
-                        File origem = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-                        String nomeFinal = nomeArquivo + "_" + gerarTimestamp();
-
-                        File destino = new File(
-                                        ExecutionManager.getExecutionFolder() + "/screenshots/" + nomeFinal + ".png");
-
-                        destino.getParentFile().mkdirs();
-
-                        Files.copy(
-                                        origem.toPath(),
-                                        destino.toPath(),
-                                        StandardCopyOption.REPLACE_EXISTING);
-
-                        System.out.println("Screenshot salvo com sucesso");
-
-                } catch (Exception e) {
-
-                        System.out.println("ERRO AO CAPTURAR SCREENSHOT");
-
-                        System.out.println("Classe do erro: " + e.getClass().getName());
-
-                        System.out.println("Mensagem: " + e.getMessage());
-
-                        e.printStackTrace();
-                }
+        private ScreenshotUtils() {
         }
 
-        public static String capturarRetornandoCaminho(WebDriver driver, String nomeArquivo) {
+        public static void capturar(
+                        WebDriver driver,
+                        String nomeArquivo) {
+
+                capturarRetornandoCaminho(
+                                driver,
+                                nomeArquivo);
+        }
+
+        public static String capturarRetornandoCaminho(
+                        WebDriver driver,
+                        String nomeArquivo) {
 
                 try {
 
-                        System.out.println("INICIOU CAPTURA");
+                        File origem = ((TakesScreenshot) driver)
+                                        .getScreenshotAs(OutputType.FILE);
 
-                        File origem = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                        String nomeFinal = nomeArquivo
+                                        + "_"
+                                        + gerarTimestamp();
 
-                        System.out.println("ARQUIVO TEMPORARIO CRIADO");
-
-                        String nomeFinal = nomeArquivo + "_" + gerarTimestamp();
-
-                        String caminho = ExecutionManager.getExecutionFolder() + "/screenshots/" + nomeFinal + ".png";
-
-                        File destino = new File(caminho);
+                        File destino = new File(
+                                        ExecutionManager.getExecutionFolder()
+                                                        + "/screenshots/"
+                                                        + nomeFinal
+                                                        + ".png");
 
                         destino.getParentFile().mkdirs();
 
@@ -67,30 +49,23 @@ public class ScreenshotUtils {
                                         origem.toPath(),
                                         destino.toPath(),
                                         StandardCopyOption.REPLACE_EXISTING);
-
-                        System.out.println("ARQUIVO COPIADO");
-
-                        System.out.println(destino.getAbsolutePath());
 
                         return destino.getAbsolutePath();
 
                 } catch (Exception e) {
 
-                        System.out.println("ERRO AO CAPTURAR SCREENSHOT");
-
-                        System.out.println("Classe: " + e.getClass().getName());
-
-                        System.out.println("Mensagem: " + e.getMessage());
-
-                        e.printStackTrace();
-
-                        return null;
+                        throw new RuntimeException(
+                                        "Erro ao capturar screenshot.",
+                                        e);
                 }
         }
 
         private static String gerarTimestamp() {
 
-                return java.time.LocalDateTime.now()
-                                .format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+                return LocalDateTime.now()
+                                .format(
+                                                DateTimeFormatter.ofPattern(
+                                                                "yyyyMMdd_HHmmss"));
         }
+
 }

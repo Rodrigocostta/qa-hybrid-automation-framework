@@ -6,7 +6,6 @@ import org.openqa.selenium.Alert;
 
 import base.BaseTest;
 import data.model.CartData;
-import pages.PageManager;
 import utils.JsonUtils;
 import utils.LoggerUtils;
 import utils.WaitUtils;

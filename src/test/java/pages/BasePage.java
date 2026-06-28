@@ -2,10 +2,17 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import utils.WaitUtils;
 
 public class BasePage {
+
+    private WebElement elemento(By locator) {
+
+        return driver.findElement(locator);
+
+    }
 
     protected WebDriver driver;
 
@@ -30,9 +37,12 @@ public class BasePage {
                 driver,
                 locator);
 
-        driver.findElement(locator).clear();
+        WebElement campo = elemento(locator);
 
-        driver.findElement(locator).sendKeys(texto);
+        campo.clear();
+
+        campo.sendKeys(texto);
+
     }
 
     protected String getText(By locator) {
@@ -41,7 +51,7 @@ public class BasePage {
                 driver,
                 locator);
 
-        return driver.findElement(locator).getText();
+        return elemento(locator).getText();
     }
 
     protected boolean isDisplayed(By locator) {
@@ -50,6 +60,7 @@ public class BasePage {
                 driver,
                 locator);
 
-        return driver.findElement(locator).isDisplayed();
+        return elemento(locator).isDisplayed();
     }
+
 }

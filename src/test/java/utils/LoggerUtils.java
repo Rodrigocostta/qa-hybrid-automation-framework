@@ -4,33 +4,43 @@ import com.aventstack.extentreports.ExtentTest;
 
 public class LoggerUtils {
 
-    public static void info(
-            ExtentTest test,
-            String mensagem) {
+        private LoggerUtils() {
+        }
 
-        test.info(mensagem);
+        public static void info(
+                        ExtentTest test,
+                        String mensagem) {
 
-        System.out.println(
-                "[INFO] " + mensagem);
-    }
+                if (test != null) {
+                        test.info(mensagem);
+                }
 
-    public static void sucesso(
-            ExtentTest test,
-            String mensagem) {
+                System.out.println(
+                                "[INFO] " + mensagem);
+        }
 
-        test.pass(mensagem);
+        public static void sucesso(
+                        ExtentTest test,
+                        String mensagem) {
 
-        System.out.println(
-                "[SUCESSO] " + mensagem);
-    }
+                if (test != null) {
+                        test.pass(mensagem);
+                }
 
-    public static void erro(
-            ExtentTest test,
-            String mensagem) {
+                System.out.println(
+                                "[SUCESSO] " + mensagem);
+        }
 
-        test.fail(mensagem);
+        public static void erro(
+                        ExtentTest test,
+                        String mensagem) {
 
-        System.out.println(
-                "[ERRO] " + mensagem);
-    }
+                if (test != null) {
+                        test.fail(mensagem);
+                }
+
+                System.out.println(
+                                "[ERRO] " + mensagem);
+        }
+
 }

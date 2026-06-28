@@ -6,6 +6,8 @@ import java.util.Properties;
 
 public class ConfigManager {
 
+    
+
     private static final Properties properties = new Properties();
 
     static {
@@ -17,6 +19,14 @@ public class ConfigManager {
                     .getResourceAsStream(
                             "config.properties");
 
+            if (input == null) {
+
+                throw new RuntimeException(
+                        "Arquivo config.properties não encontrado.");
+
+            }
+
+            properties.load(input);
             properties.load(input);
 
         } catch (IOException e) {
@@ -45,4 +55,6 @@ public class ConfigManager {
         return properties.getProperty(
                 "browser");
     }
+
+    
 }

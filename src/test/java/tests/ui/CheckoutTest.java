@@ -8,7 +8,6 @@ import base.BaseTest;
 import data.model.CartData;
 import data.model.CheckoutData;
 import pages.CheckoutPage;
-import pages.PageManager;
 import utils.JsonUtils;
 import utils.LoggerUtils;
 import utils.WaitUtils;

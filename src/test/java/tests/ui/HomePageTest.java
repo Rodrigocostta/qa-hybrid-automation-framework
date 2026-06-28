@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import base.BaseTest;
-import pages.PageManager;
 import utils.LoggerUtils;
 
 public class HomePageTest extends BaseTest {

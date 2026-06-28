@@ -10,89 +10,70 @@ import data.model.LoginData;
 
 public class JsonUtils {
 
-    public static CheckoutData carregarCheckoutData() {
+    private static final ObjectMapper mapper = new ObjectMapper();
+
+    private JsonUtils() {
+    }
+
+    /**
+     * Método genérico responsável por carregar qualquer arquivo JSON.
+     */
+    private static <T> T carregarJson(
+            String arquivo,
+            Class<T> classe) {
 
         try {
 
             InputStream inputStream = JsonUtils.class
                     .getClassLoader()
-                    .getResourceAsStream(
-                            "testdata/checkout.json");
+                    .getResourceAsStream(arquivo);
 
             if (inputStream == null) {
 
                 throw new RuntimeException(
-                        "Arquivo checkout.json não encontrado");
+                        "Arquivo " + arquivo + " não encontrado.");
             }
-
-            ObjectMapper mapper = new ObjectMapper();
 
             return mapper.readValue(
                     inputStream,
-                    CheckoutData.class);
+                    classe);
 
         } catch (Exception e) {
 
             throw new RuntimeException(
-                    "Erro ao carregar checkout.json",
+                    "Erro ao carregar " + arquivo,
                     e);
         }
     }
 
+    /**
+     * Carrega os dados de login.
+     */
     public static LoginData carregarLoginData() {
 
-        try {
-
-            InputStream inputStream = JsonUtils.class
-                    .getClassLoader()
-                    .getResourceAsStream(
-                            "testdata/login.json");
-
-            if (inputStream == null) {
-
-                throw new RuntimeException(
-                        "Arquivo login.json não encontrado");
-            }
-
-            ObjectMapper mapper = new ObjectMapper();
-
-            return mapper.readValue(
-                    inputStream,
-                    LoginData.class);
-
-        } catch (Exception e) {
-
-            throw new RuntimeException(
-                    "Erro ao carregar login.json",
-                    e);
-        }
+        return carregarJson(
+                "testdata/login.json",
+                LoginData.class);
     }
 
+    /**
+     * Carrega os dados de checkout.
+     */
+    public static CheckoutData carregarCheckoutData() {
+
+        return carregarJson(
+                "testdata/checkout.json",
+                CheckoutData.class);
+    }
+
+    /**
+     * Carrega os dados do carrinho.
+     */
     public static CartData carregarCartData() {
-        try {
 
-            InputStream inputStream = JsonUtils.class
-                    .getClassLoader()
-                    .getResourceAsStream(
-                            "testdata/cart.json");
-
-            if (inputStream == null) {
-
-                throw new RuntimeException(
-                        "Arquivo cart.json não encontrado");
-            }
-
-            ObjectMapper mapper = new ObjectMapper();
-
-            return mapper.readValue(
-                    inputStream,
-                    CartData.class);
-
-        } catch (Exception e) {
-
-            throw new RuntimeException(
-                    "Erro ao carregar cart.json",
-                    e);
-        }
+        return carregarJson(
+                "testdata/cart.json",
+                CartData.class);
     }
+
 }

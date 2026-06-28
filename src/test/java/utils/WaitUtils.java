@@ -13,7 +13,14 @@ import config.ConfigManager;
 
 public class WaitUtils {
 
-        private static final int TIMEOUT = 10;
+        private static WebDriverWait criarWait(
+                        WebDriver driver) {
+
+                return new WebDriverWait(
+                                driver,
+                                Duration.ofSeconds(
+                                                ConfigManager.getTimeout()));
+        }
 
         private WaitUtils() {
         }
@@ -25,13 +32,7 @@ public class WaitUtils {
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                wait.until(
-                                ExpectedConditions.visibilityOfElementLocated(locator));
+                criarWait(driver).until(ExpectedConditions.visibilityOfElementLocated(locator));
         }
 
         /*
@@ -42,15 +43,7 @@ public class WaitUtils {
                         By locator,
                         String texto) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                wait.until(
-                                ExpectedConditions.textToBePresentInElementLocated(
-                                                locator,
-                                                texto));
+                criarWait(driver).until(ExpectedConditions.textToBePresentInElementLocated(locator, texto));
         }
 
         /*
@@ -60,13 +53,7 @@ public class WaitUtils {
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                wait.until(
-                                ExpectedConditions.elementToBeClickable(locator));
+                criarWait(driver).until(ExpectedConditions.elementToBeClickable(locator));
         }
 
         /*
@@ -76,13 +63,7 @@ public class WaitUtils {
                         WebDriver driver,
                         String textoUrl) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                wait.until(
-                                ExpectedConditions.urlContains(textoUrl));
+                criarWait(driver).until(ExpectedConditions.urlContains(textoUrl));
         }
 
         /*
@@ -91,12 +72,7 @@ public class WaitUtils {
         public static Alert esperarAlerta(
                         WebDriver driver) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                return wait.until(
+                return criarWait(driver).until(
                                 ExpectedConditions.alertIsPresent());
         }
 
@@ -104,44 +80,21 @@ public class WaitUtils {
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                wait.until(
-                                ExpectedConditions
-                                                .invisibilityOfElementLocated(
-                                                                locator));
+                criarWait(driver).until(ExpectedConditions.invisibilityOfElementLocated(locator));
         }
 
         public static boolean esperarElementoInvisivel(
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                return wait.until(
-                                ExpectedConditions
-                                                .invisibilityOfElementLocated(
-                                                                locator));
+                return criarWait(driver).until(ExpectedConditions.invisibilityOfElementLocated(locator));
         }
 
         public static WebElement esperarPresencaElemento(
                         WebDriver driver,
                         By locator) {
 
-                WebDriverWait wait = new WebDriverWait(
-                                driver,
-                                Duration.ofSeconds(
-                                                ConfigManager.getTimeout()));
-
-                return wait.until(
-                                ExpectedConditions
-                                                .presenceOfElementLocated(
-                                                                locator));
+                return criarWait(driver).until(ExpectedConditions.presenceOfElementLocated(locator));
         }
+
 }

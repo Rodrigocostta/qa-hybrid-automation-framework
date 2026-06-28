@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import base.BaseTest;
 import data.model.LoginData;
-import pages.PageManager;
 import utils.JsonUtils;
 import utils.LoggerUtils;
 

@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import base.BaseTest;
-import pages.PageManager;
 import utils.LoggerUtils;
 import utils.WaitUtils;
 
