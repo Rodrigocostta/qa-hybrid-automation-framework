@@ -15,51 +15,86 @@ public class CartTest extends BaseTest {
         @Test
         public void deveRemoverProdutoDoCarrinho() {
 
-                LoggerUtils.info(test,
+                /*
+                 * Arrange
+                 * Nesta etapa preparamos o cenário do teste.
+                 * Aqui registramos informações iniciais e garantimos que tudo
+                 * esteja pronto antes de executar a ação que será validada.
+                 */
+                LoggerUtils.info(
+                                test,
                                 "CT005 - Remover Produto do Carrinho");
 
                 CartData dadosProduto = JsonUtils.carregarCartData();
 
-                LoggerUtils.info(test,
-                                "Selecionando produto: " + dadosProduto.getProduto());
+                LoggerUtils.info(
+                                test,
+                                "Preparando produto: "
+                                                + dadosProduto.getProduto());
 
-                pages.homePage().clicarProduto(dadosProduto.getProduto());
+                /*
+                 * Act
+                 * Nesta etapa executamos a ação principal do teste.
+                 * O objetivo é realizar apenas a operação que será validada,
+                 * sem incluir verificações ou asserts.
+                 */
+                pages.homePage()
+                                .clicarProduto(
+                                                dadosProduto.getProduto());
 
-                LoggerUtils.info(test,
+                LoggerUtils.info(
+                                test,
                                 "Adicionando produto ao carrinho");
 
-                pages.productPage().adicionarAoCarrinho();
+                pages.productPage()
+                                .adicionarAoCarrinho();
 
                 Alert alerta = WaitUtils.esperarAlerta(driver);
 
                 alerta.accept();
 
-                LoggerUtils.info(test,
-                                "Acessando carrinho");
+                LoggerUtils.info(
+                                test,
+                                "Acessando carrinho para validar a remoção");
 
-                pages.homePage().clicarCarrinho();
+                pages.homePage()
+                                .clicarCarrinho();
 
                 Assert.assertTrue(
                                 "Produto não encontrado no carrinho",
-                                pages.cartPage().produtoExisteNoCarrinho(dadosProduto.getProduto()));
+                                pages.cartPage()
+                                                .produtoExisteNoCarrinho(
+                                                                dadosProduto.getProduto()));
 
-                LoggerUtils.info(test,
+                LoggerUtils.info(
+                                test,
                                 "Removendo produto do carrinho");
 
-                pages.cartPage().removerProduto();
+                pages.cartPage()
+                                .removerProduto();
 
-                pages.cartPage().aguardarRemocaoProduto(dadosProduto.getProduto());
+                pages.cartPage()
+                                .aguardarRemocaoProduto(
+                                                dadosProduto.getProduto());
 
-                LoggerUtils.sucesso(test,
-                                "Produto removido do carrinho com sucesso");
+                /*
+                 * Assert
+                 * Nesta etapa verificamos se o resultado obtido corresponde
+                 * ao esperado. Também registramos evidências e o resultado
+                 * da execução no relatório.
+                 */
+                Assert.assertFalse(
+                                "Produto deveria ter sido removido",
+                                pages.cartPage()
+                                                .produtoExisteNoCarrinho(
+                                                                dadosProduto.getProduto()));
 
                 capturarEvidencia(
                                 "produto_removido");
 
-                Assert.assertFalse(
-                                "Produto deveria ter sido removido",
-                                pages.cartPage().produtoExisteNoCarrinho(
-                                                dadosProduto.getProduto()));
+                LoggerUtils.sucesso(
+                                test,
+                                "Produto removido do carrinho com sucesso");
         }
 
 }

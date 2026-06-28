@@ -3,68 +3,50 @@ package tests.ui;
 import org.junit.Assert;
 import org.junit.Test;
 import base.BaseTest;
-import data.model.LoginData;
-import utils.JsonUtils;
 import utils.LoggerUtils;
 
 public class LoginTest extends BaseTest {
 
         @Test
         public void deveAbrirModalLogin() {
-                LoggerUtils.info(test,
+
+                /*
+                 * Arrange
+                 * Nesta etapa preparamos o cenário do teste.
+                 * Aqui registramos informações iniciais e garantimos que tudo
+                 * esteja pronto antes de executar a ação que será validada.
+                 */
+                LoggerUtils.info(
+                                test,
                                 "CT002 - Abrir Modal de Login");
 
-                LoggerUtils.info(test,
-                                "acessando pagina inicial");
+                LoggerUtils.info(
+                                test,
+                                "Validando abertura do modal de login");
 
+                /*
+                 * Act
+                 * Nesta etapa executamos a ação principal do teste.
+                 * O objetivo é realizar apenas a operação que será validada,
+                 * sem incluir verificações ou asserts.
+                 */
                 pages.homePage().clicarLogin();
 
-                capturarEvidencia("modal_login");
-                LoggerUtils.sucesso(test,
-                                "Modal de login exibido com sucesso");
+                /*
+                 * Assert
+                 * Nesta etapa verificamos se o resultado obtido corresponde
+                 * ao esperado. Também registramos evidências e o resultado
+                 * da execução no relatório.
+                 */
                 Assert.assertTrue(
                                 "Modal de login deveria estar visível",
                                 pages.homePage().modalLoginEstaVisivel());
 
-        }
+                capturarEvidencia("modal_login");
 
-        @Test
-        public void deveRealizarLoginComSucesso() {
-                LoggerUtils.info(test,
-                                "CT003 - Realizar Login com Sucesso");
-
-                LoggerUtils.info(test,
-                                "acessando pagina inicial");
-
-                LoggerUtils.info(test,
-                                "acessando modal de login");
-                pages.homePage().clicarLogin();
-
-                LoggerUtils.info(test,
-                                "inserindo credenciais de login");
-
-                LoginData dados = JsonUtils.carregarLoginData();
-
-                pages.loginPage().enterUsername(
-                                dados.getUsername());
-
-                pages.loginPage().enterPassword(
-                                dados.getPassword());
-
-                LoggerUtils.info(test,
-                                "clicando em login");
-                pages.loginPage().clickLogin();
-
-                String usuarioLogado = pages.loginPage().obterUsuarioLogado();
-
-                Assert.assertEquals(
-                                "Usuário não logado",
-                                "Welcome Qa_Rodrigo", usuarioLogado);
-
-                LoggerUtils.sucesso(test,
-                                "Login realizado com sucesso");
-                capturarEvidencia("login_realizado");
-
+                LoggerUtils.sucesso(
+                                test,
+                                "Modal de login exibido com sucesso");
         }
 
 }

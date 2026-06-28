@@ -11,25 +11,50 @@ public class HomePageTest extends BaseTest {
         @Test
         public void deveAbrirPaginaInicial() {
 
-                LoggerUtils.info(test,
+                /*
+                 * Arrange
+                 * Nesta etapa preparamos o cenário do teste.
+                 * Aqui registramos informações iniciais e garantimos que tudo
+                 * esteja pronto antes de executar a ação que será validada.
+                 */
+                LoggerUtils.info(
+                                test,
                                 "CT001 - Abrir Página Inicial");
 
-                LoggerUtils.info(test,
-                                "Abrindo página inicial");
+                LoggerUtils.info(
+                                test,
+                                "Validando abertura da página inicial");
 
-                String titulo = pages.homePage().obterTituloPagina();
+                /*
+                 * Act
+                 * Nesta etapa executamos a ação principal do teste.
+                 * O objetivo é realizar apenas a operação que será validada,
+                 * sem incluir verificações ou asserts.
+                 */
+                String titulo = pages.homePage()
+                                .obterTituloPagina();
 
-                LoggerUtils.info(test,
+                /*
+                 * Assert
+                 * Nesta etapa verificamos se o resultado obtido corresponde
+                 * ao esperado. Também registramos evidências e o resultado
+                 * da execução no relatório.
+                 */
+                LoggerUtils.info(
+                                test,
                                 "Título encontrado: " + titulo);
 
                 Assert.assertEquals(
                                 "Título da página incorreto",
-                                "STORE", titulo);
+                                "STORE",
+                                titulo);
 
-                capturarEvidencia("pagina_inicial");
-                LoggerUtils.sucesso(test,
-                                "Título da página inicial esperado encontrado");
+                capturarEvidencia(
+                                "pagina_inicial");
 
+                LoggerUtils.sucesso(
+                                test,
+                                "Página inicial validada com sucesso");
         }
 
 }
