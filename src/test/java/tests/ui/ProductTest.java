@@ -63,14 +63,14 @@ public class ProductTest extends BaseTest {
                                 "Product added",
                                 mensagem);
 
-                capturarEvidencia(
-                                "produto_adicionado");
-
                 LoggerUtils.sucesso(
                                 test,
                                 "Produto adicionado ao carrinho com sucesso");
 
                 alerta.accept();
+
+                capturarEvidencia(
+                                "produto_adicionado");
         }
 
 }

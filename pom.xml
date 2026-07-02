@@ -1,74 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.portfolio</groupId>
   <artifactId>qa_hybrid_automation_framework</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>qa_hybrid_automation_framework</name>
+  <name>QA Hybrid Automation Framework</name>
+
+  <!-- ====================================================== -->
+  <!-- PROPRIEDADES DO PROJETO -->
+  <!-- ====================================================== -->
+
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+
+    <!-- Java -->
+    <java.version>21</java.version>
+
+    <!-- Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!-- Bibliotecas -->
+    <junit.version>4.13.2</junit.version>
+    <selenium.version>4.41.0</selenium.version>
+    <restassured.version>5.5.6</restassured.version>
+    <webdrivermanager.version>6.3.2</webdrivermanager.version>
+    <extentreports.version>5.1.2</extentreports.version>
+    <jackson.version>2.20.0</jackson.version>
+
+    <!-- Maven Compiler -->
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+
   </properties>
+
+  <!-- ====================================================== -->
+  <!-- DEPENDÊNCIAS -->
+  <!-- ====================================================== -->
+
   <dependencies>
-    <!--  JUnit 4  -->
+
+    <!-- ====================================================== -->
+    <!-- TESTES -->
+    <!-- ====================================================== -->
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13.2</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
-    <!--  Selenium Chrome Driver  -->
+
+    <!-- ====================================================== -->
+    <!-- UI - SELENIUM -->
+    <!-- ====================================================== -->
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-chrome-driver</artifactId>
-      <version>4.41.0</version>
+      <version>${selenium.version}</version>
       <scope>test</scope>
     </dependency>
-    <!--  Selenium Support  -->
+
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-support</artifactId>
-      <version>4.41.0</version>
+      <version>${selenium.version}</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>6.3.2</version>
-</dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
 
-<dependency>
-    <groupId>com.aventstack</groupId>
-    <artifactId>extentreports</artifactId>
-    <version>5.1.2</version>
-</dependency>
+    <!-- ====================================================== -->
+    <!-- API -->
+    <!-- ====================================================== -->
 
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${restassured.version}</version>
+      <scope>test</scope>
+    </dependency>
 
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.20.0</version>
-</dependency>
+    <!-- ====================================================== -->
+    <!-- UTILITÁRIOS -->
+    <!-- ====================================================== -->
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- ====================================================== -->
+    <!-- RELATÓRIOS -->
+    <!-- ====================================================== -->
+
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>${extentreports.version}</version>
+    </dependency>
 
   </dependencies>
+
+  <!-- ====================================================== -->
+  <!-- BUILD -->
+  <!-- ====================================================== -->
+
   <build>
+
     <plugins>
+
+      <!-- Compilador Java -->
+
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.11.0</version>
+
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+
       </plugin>
+
+      <!-- Executor dos testes -->
+
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
       </plugin>
+
     </plugins>
+
   </build>
+
 </project>
