@@ -9,14 +9,17 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import config.ConfigManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.PageManager;
 import utils.ExtentReportManager;
 import utils.ScreenshotUtils;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+
+import config.ConfigManager;
+
 import org.junit.Rule;
+
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 
@@ -133,6 +136,7 @@ public class BaseTest {
         driver.manage().window().maximize();
 
         driver.get(ConfigManager.getBaseUrl());
+
     }
 
     /*

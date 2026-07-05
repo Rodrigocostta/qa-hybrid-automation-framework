@@ -28,6 +28,6 @@ public class ApiConfig {
 
         // Define a URL base da API
         // Todas as requests irão herdar essa configuração automaticamente
-        RestAssured.baseURI = "https://api.demoblaze.com";
+        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
     }
 }

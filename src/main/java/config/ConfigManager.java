@@ -6,8 +6,6 @@ import java.util.Properties;
 
 public class ConfigManager {
 
-    
-
     private static final Properties properties = new Properties();
 
     static {
@@ -56,5 +54,4 @@ public class ConfigManager {
                 "browser");
     }
 
-    
 }
