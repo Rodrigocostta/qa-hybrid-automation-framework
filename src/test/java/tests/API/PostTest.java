@@ -92,4 +92,15 @@ public class PostTest extends BaseApiTest {
         assertEquals(1, post.getUserId());
 
     }
+
+    @Test
+    public void deveExcluirPostComSucesso() {
+
+        // Act
+        Response response = PostService.deletePost(1);
+
+        // Assert
+        assertEquals(200, response.getStatusCode());
+
+    }
 }
