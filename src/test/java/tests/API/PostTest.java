@@ -1,12 +1,13 @@
 package tests.API;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import base.BaseApiTest;
 import io.restassured.response.Response;
+import models.CreatePostRequest;
 import models.Post;
 import service.PostService;
 
@@ -40,4 +41,55 @@ public class PostTest extends BaseApiTest {
         assertFalse(post.getBody().isBlank());
     }
 
+    @Test
+    public void deveCriarPostComSucesso() {
+
+        CreatePostRequest request = new CreatePostRequest();
+
+        request.setTitle("Primeiro Post");
+
+        request.setBody("Criado pelo Framework");
+
+        request.setUserId(1);
+
+        Response response = PostService.createPost(request);
+
+        Post post = response.as(Post.class);
+
+        assertEquals(201, response.getStatusCode());
+
+        assertEquals("Primeiro Post", post.getTitle());
+
+        assertEquals("Criado pelo Framework", post.getBody());
+
+        assertEquals(1, post.getUserId());
+    }
+
+    @Test
+    public void deveAtualizarPostComSucesso() {
+
+        // Arrange
+        CreatePostRequest request = new CreatePostRequest();
+
+        request.setTitle("Título Atualizado");
+        request.setBody("Conteúdo Atualizado");
+        request.setUserId(1);
+
+        // Act
+        Response response = PostService.updatePost(1, request);
+
+        Post post = response.as(Post.class);
+
+        // Assert
+        assertEquals(200, response.getStatusCode());
+
+        assertEquals(1, post.getId());
+
+        assertEquals("Título Atualizado", post.getTitle());
+
+        assertEquals("Conteúdo Atualizado", post.getBody());
+
+        assertEquals(1, post.getUserId());
+
+    }
 }

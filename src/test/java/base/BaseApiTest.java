@@ -1,6 +1,6 @@
 package base;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.Before;
 
 import config.ApiConfig;
 
@@ -30,12 +30,9 @@ public class BaseApiTest {
      *
      * Responsável por configurar a baseURI utilizada pelo RestAssured.
      */
-    @BeforeEach
+    @Before
     public void setup() {
-
-        // Configura a URL base da API.
         ApiConfig.configurar();
-
     }
 
 }

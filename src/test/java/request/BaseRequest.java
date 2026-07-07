@@ -22,19 +22,24 @@ import io.restassured.response.Response;
  */
 public class BaseRequest {
 
-    /**
-     * Executa requisição GET
-     *
-     * @param endpoint caminho do recurso (ex: /users)
-     * @return Response resposta da API
-     */
     public static Response get(String endpoint) {
 
         return RestAssured
                 .given()
-                // aqui futuramente podem entrar headers globais
+
+                // Registra todas as informações da requisição
+                .log().all()
+
                 .when()
-                .get(endpoint);
+                .get(endpoint)
+
+                // Registra todas as informações da resposta
+                .then()
+                .log().all()
+
+                // Retorna novamente um objeto Response
+                .extract()
+                .response();
     }
 
     /**
@@ -83,4 +88,5 @@ public class BaseRequest {
                 .when()
                 .delete(endpoint);
     }
+
 }
