@@ -7,64 +7,75 @@ import io.restassured.response.Response;
  * Classe responsável por encapsular todas as chamadas HTTP do framework.
  *
  * Responsabilidade:
- * - Executar requisições HTTP (GET, POST, PUT, DELETE)
+ * - Executar requisições HTTP (GET, POST, PUT e DELETE).
  *
  * NÃO é responsabilidade dela:
- * - Regras de negócio
- * - Validações
- * - Montagem de dados de teste
+ * - Regras de negócio.
+ * - Validações.
+ * - Montagem de massa de testes.
  *
- * Ela atua como:
- * - "Motor HTTP" do framework
+ * Atua como o "motor HTTP" do framework.
  *
  * Arquitetura:
- * Service → BaseRequest → RestAssured → API
+ *
+ * Service
+ * ↓
+ * BaseRequest
+ * ↓
+ * RestAssured
+ * ↓
+ * API
  */
-public class BaseRequest {
+public final class BaseRequest {
 
+    /**
+     * Impede instanciação da classe.
+     */
+    private BaseRequest() {
+    }
+
+    /**
+     * Executa uma requisição GET.
+     *
+     * @param endpoint caminho do recurso.
+     * @return resposta da API.
+     */
     public static Response get(String endpoint) {
 
         return RestAssured
                 .given()
-
-                // Registra todas as informações da requisição
                 .log().all()
-
                 .when()
                 .get(endpoint)
-
-                // Registra todas as informações da resposta
                 .then()
                 .log().all()
-
-                // Retorna novamente um objeto Response
                 .extract()
                 .response();
     }
 
     /**
-     * Executa requisição POST
+     * Executa uma requisição POST.
      *
-     * @param endpoint caminho do recurso
-     * @param body     objeto que será enviado no corpo da requisição
+     * @param endpoint caminho do recurso.
+     * @param body     objeto enviado no corpo da requisição.
+     * @return resposta da API.
      */
     public static Response post(String endpoint, Object body) {
 
         return RestAssured
                 .given()
-                // define padrão de comunicação JSON
                 .header("Content-Type", "application/json")
-                // corpo da requisição (payload)
                 .body(body)
                 .when()
                 .post(endpoint);
     }
 
     /**
-     * Executa requisição PUT
+     * Executa uma requisição PUT.
      *
-     * @param endpoint caminho do recurso
-     * @param body     objeto que será atualizado
+     * @param endpoint caminho do recurso.
+     * @param body     objeto enviado para atualização.
+     * @return resposta da API.
      */
     public static Response put(String endpoint, Object body) {
 
@@ -77,9 +88,10 @@ public class BaseRequest {
     }
 
     /**
-     * Executa requisição DELETE
+     * Executa uma requisição DELETE.
      *
-     * @param endpoint recurso a ser removido
+     * @param endpoint caminho do recurso.
+     * @return resposta da API.
      */
     public static Response delete(String endpoint) {
 

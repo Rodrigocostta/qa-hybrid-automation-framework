@@ -3,18 +3,24 @@ package models;
 /**
  * Modelo responsável pelo corpo da requisição de criação de Posts.
  *
- * O RestAssured utilizará esta classe para serializar automaticamente
- * o objeto Java em JSON.
+ * O Jackson (utilizado pelo RestAssured) realiza automaticamente
+ * a serialização desta classe para JSON.
  */
 public class CreatePostRequest {
 
-    // Título do post
+    /**
+     * Título do Post.
+     */
     private String title;
 
-    // Conteúdo do post
+    /**
+     * Conteúdo do Post.
+     */
     private String body;
 
-    // Identificador do usuário
+    /**
+     * Identificador do usuário.
+     */
     private int userId;
 
     public String getTitle() {
@@ -40,4 +46,5 @@ public class CreatePostRequest {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
 }

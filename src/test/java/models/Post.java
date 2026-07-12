@@ -1,11 +1,11 @@
 package models;
 
 /**
- * Model que representa o recurso Post da API.
+ * Modelo que representa o recurso Post retornado pela API.
  *
  * Responsabilidade:
  * Receber automaticamente os dados retornados pela API
- * através da desserialização realizada pelo RestAssured.
+ * através da desserialização realizada pelo Jackson/RestAssured.
  */
 public class Post {
 
@@ -28,10 +28,6 @@ public class Post {
      * Conteúdo do Post.
      */
     private String body;
-
-    /*
-     * Getters e Setters
-     */
 
     public int getUserId() {
         return userId;

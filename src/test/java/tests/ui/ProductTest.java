@@ -13,12 +13,6 @@ public class ProductTest extends BaseTest {
         @Test
         public void deveAdicionarProdutoAoCarrinho() {
 
-                /*
-                 * Arrange
-                 * Nesta etapa preparamos o cenário do teste.
-                 * Aqui registramos informações iniciais e garantimos que tudo
-                 * esteja pronto antes de executar a ação que será validada.
-                 */
                 LoggerUtils.info(
                                 test,
                                 "CT004 - Adicionar Produto ao Carrinho");
@@ -27,12 +21,6 @@ public class ProductTest extends BaseTest {
                                 test,
                                 "Preparando seleção do produto");
 
-                /*
-                 * Act
-                 * Nesta etapa executamos a ação principal do teste.
-                 * O objetivo é realizar apenas a operação que será validada,
-                 * sem incluir verificações ou asserts.
-                 */
                 pages.homePage()
                                 .clicarProduto("Samsung galaxy s6");
 
@@ -52,16 +40,13 @@ public class ProductTest extends BaseTest {
 
                 String mensagem = alerta.getText();
 
-                /*
-                 * Assert
-                 * Nesta etapa verificamos se o resultado obtido corresponde
-                 * ao esperado. Também registramos evidências e o resultado
-                 * da execução no relatório.
-                 */
                 Assert.assertEquals(
                                 "Mensagem de produto adicionado incorreta",
                                 "Product added",
                                 mensagem);
+
+                // Fecha o alerta antes de qualquer interação com o navegador
+                alerta.accept();
 
                 capturarEvidencia(
                                 "produto_adicionado");
@@ -69,8 +54,6 @@ public class ProductTest extends BaseTest {
                 LoggerUtils.sucesso(
                                 test,
                                 "Produto adicionado ao carrinho com sucesso");
-
-                alerta.accept();
         }
 
 }

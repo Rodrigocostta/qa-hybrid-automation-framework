@@ -6,28 +6,30 @@ import io.restassured.RestAssured;
  * Classe responsável por centralizar a configuração base da API.
  *
  * Responsabilidade única:
- * - Definir o endpoint base (baseURI) usado por todas as requisições.
+ * - Configurar o endpoint base utilizado por todas as requisições.
  *
  * Equivalente na arquitetura UI:
- * - DriverFactory (configuração do navegador)
+ * - DriverFactory (configuração do WebDriver)
  *
- * Benefício:
- * - Evita repetição de URL em múltiplos testes ou services
- * - Facilita mudança de ambiente (dev, qa, prod futuramente)
+ * Benefícios:
+ * - Evita repetição da URL base.
+ * - Centraliza a configuração da API.
+ * - Facilita futuras alterações de ambiente.
  */
-public class ApiConfig {
+public final class ApiConfig {
+
+    private ApiConfig() {
+        // Impede instanciação
+    }
 
     /**
-     * Método responsável por configurar o RestAssured.
-     *
-     * Observação:
-     * - Método estático porque a configuração é global
-     * - Não faz sentido instanciar essa classe
+     * Configura o RestAssured para utilização nos testes.
      */
     public static void configurar() {
 
-        // Define a URL base da API
-        // Todas as requests irão herdar essa configuração automaticamente
+
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
+
     }
+
 }
