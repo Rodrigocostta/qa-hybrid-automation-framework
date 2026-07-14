@@ -1,28 +1,54 @@
+# Nome que aparecerá na aba "Actions" do GitHub
 name: QA Hybrid Automation Framework CI
 
+# Define quando a pipeline será executada
 on:
+  # Executa quando houver push
   push:
     branches:
       - main
       - feature/**
+
+  # Executa quando houver Pull Request para a main
   pull_request:
     branches:
       - main
 
+# Lista de jobs da pipeline
 jobs:
+  # Job responsável por compilar e executar os testes
   build-and-test:
+    # Máquina virtual utilizada pelo GitHub
     runs-on: ubuntu-latest
 
+    # Passos executados em sequência
     steps:
+      # Faz o download do código do repositório
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      # Instala o Java 21
       - name: Configurar Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
+
+          # Mantém as dependências Maven em cache
           cache: maven
 
+      # Executa todos os testes do projeto
       - name: Executar testes Maven
         run: mvn clean test
+
+      # Publica o relatório do ExtentReports
+      # O relatório será enviado mesmo se algum teste falhar
+      - name: Publicar relatório ExtentReports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          # Nome exibido na aba "Artifacts"
+          name: extent-report
+
+          # Pasta onde o ExtentReport é gerado
+          path: target/reports/
