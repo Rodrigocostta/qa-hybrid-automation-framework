@@ -1,8 +1,10 @@
 # QA Hybrid Automation Framework
 
-Framework de automação de testes desenvolvido para consolidar conhecimentos em Quality Assurance Automation, aplicando boas práticas de mercado, arquitetura escalável e evolução contínua.
+Framework híbrido de automação de testes desenvolvido em **Java 21**, aplicando boas práticas de engenharia de software, arquitetura escalável e conceitos utilizados em ambientes profissionais de QA Automation.
 
-O projeto está sendo construído de forma incremental, iniciando pela camada de automação Web (UI) e evoluindo para uma arquitetura híbrida contemplando testes de API, relatórios avançados e integração contínua.
+O projeto contempla automação **Web (UI)**, **API Testing**, geração de relatórios, evidências automatizadas, integração contínua através de pipeline CI/CD e práticas de **Infrastructure as Code (IaC)** utilizando Terraform.
+
+O objetivo é demonstrar uma arquitetura completa de automação, aproximando o projeto de cenários reais encontrados em times de qualidade.
 
 ---
 
@@ -10,68 +12,115 @@ O projeto está sendo construído de forma incremental, iniciando pela camada de
 
 Construir um framework híbrido de automação capaz de suportar:
 
-* Testes Web (UI)
-* Testes de API
-* Relatórios de execução
-* Evidências automatizadas
-* Integração Contínua (CI/CD)
+* Testes Web utilizando Selenium WebDriver;
+* Testes de API utilizando RestAssured;
+* Organização baseada em Page Object Model;
+* Execução automatizada via Maven;
+* Relatórios de execução;
+* Captura automática de evidências;
+* Integração contínua com GitHub Actions;
+* Conceitos de Infrastructure as Code utilizando Terraform.
 
-Além do aspecto técnico, o projeto tem como objetivo servir como portfólio profissional e laboratório de aprendizado para evolução em QA Automation.
+Além do aspecto técnico, o projeto serve como portfólio profissional para demonstração de conhecimentos em QA Automation.
+
+---
+
+# Arquitetura do Framework
+
+```text
+QA Hybrid Automation Framework
+
+                Test Automation
+
+                      |
+        --------------------------------
+        |                              |
+        v                              v
+
+   UI Automation                 API Automation
+
+ Selenium WebDriver              RestAssured
+
+        |                              |
+        --------------------------------
+
+                      |
+                      v
+
+              JUnit Test Execution
+
+                      |
+                      v
+
+              ExtentReports
+
+                      |
+                      v
+
+             GitHub Actions CI/CD
+
+                      |
+                      v
+
+              Terraform IaC
+```
 
 ---
 
 # Aplicação Utilizada
 
-Automação Web realizada sobre a aplicação de testes:
+Os testes Web foram desenvolvidos utilizando a aplicação:
 
+```
 https://www.demoblaze.com
+```
 
 ---
 
-# Tecnologias Implementadas
+# Tecnologias Utilizadas
 
-### Linguagem
+## Linguagem
 
 * Java 21
 
-### Automação Web
+## Automação Web
 
 * Selenium WebDriver 4
 
-### Framework de Testes
+## Automação API
+
+* RestAssured
+
+## Framework de Testes
 
 * JUnit 4
+* JUnit 5
 
-### Gerenciamento de Dependências
+## Gerenciamento de Dependências
 
 * Maven
 
-### Gerenciamento de Drivers
+## Gerenciamento de Drivers
 
 * WebDriverManager
 
----
+## Relatórios e Evidências
 
-# Tecnologias Planejadas
+* ExtentReports
+* ScreenshotUtils
 
-* Rest Assured
-* Allure Reports
+## Controle de Versão
+
+* Git
+* GitHub
+
+## CI/CD
+
 * GitHub Actions
-* Pipeline CI/CD
-* Integração UI + API
 
-## Implementado
+## Infrastructure as Code
 
-- Selenium
-- JUnit 4
-- Extent Reports
-- ScreenshotUtils
-
-## Roadmap
-
-- Rest Assured
-- GitHub Actions
-- CI/CD
+* Terraform
 
 ---
 
@@ -80,6 +129,10 @@ https://www.demoblaze.com
 ```text
 qa-hybrid-automation-framework
 
+├── .github
+│   └── workflows
+│       └── ci.yml
+│
 ├── docs
 │   ├── 01-escopo-do-projeto.md
 │   ├── 02-estrategia-de-testes.md
@@ -89,6 +142,7 @@ qa-hybrid-automation-framework
 │   └── 06-decisoes-tecnicas.md
 │
 ├── src
+│   ├── main
 │   └── test
 │       └── java
 │           ├── base
@@ -98,44 +152,69 @@ qa-hybrid-automation-framework
 │           ├── tests
 │           └── utils
 │
+├── terraform
+│   ├── provider.tf
+│   ├── variables.tf
+│   ├── main.tf
+│   ├── outputs.tf
+│   └── README.md
+│
 ├── pom.xml
 └── README.md
 ```
 
 ---
 
-# Descrição dos Pacotes
+# Arquitetura de Código
 
-## base
+## Base
 
-Classes base reutilizáveis do framework.
+Contém classes reutilizáveis do framework.
+
+Responsabilidades:
+
+* Inicialização do WebDriver;
+* Configuração do ambiente;
+* Comportamentos compartilhados.
+
+Exemplos:
 
 * BaseTest
 * BasePage
 
-Responsáveis pela inicialização do WebDriver, configuração do ambiente e reutilização de comportamentos comuns.
-
 ---
 
-## config
+## Config
 
-Centralização das configurações da aplicação.
+Centraliza configurações utilizadas pelo framework.
+
+Exemplo:
 
 * Config
 
 ---
 
-## data
+## Data
 
-Centralização dos dados utilizados durante os testes.
+Centralização de dados utilizados nos testes.
+
+Exemplo:
 
 * TestData
 
 ---
 
-## pages
+## Pages
 
-Implementação do padrão Page Object Model (POM).
+Implementação do padrão:
+
+```
+Page Object Model (POM)
+```
+
+Cada página representa seus próprios elementos e comportamentos.
+
+Exemplos:
 
 * HomePage
 * LoginPage
@@ -143,25 +222,27 @@ Implementação do padrão Page Object Model (POM).
 * CartPage
 * CheckoutPage
 
-Cada página encapsula seus elementos e comportamentos.
-
 ---
 
-## tests
+## Tests
 
 Contém os cenários automatizados.
 
-* HomePageTest
+Exemplos:
+
 * LoginTest
 * ProductTest
 * CartTest
 * CheckoutTest
+* API Tests
 
 ---
 
-## utils
+## Utils
 
-Classes utilitárias reutilizáveis.
+Componentes auxiliares reutilizáveis.
+
+Exemplos:
 
 * WaitUtils
 * LogUtils
@@ -171,82 +252,148 @@ Classes utilitárias reutilizáveis.
 
 # Funcionalidades Automatizadas
 
-## Página Inicial
+## UI Automation
 
-* Validação da abertura da aplicação
+### Login
 
-## Login
+* Abertura do modal de login;
+* Login com usuário válido;
+* Validação de autenticação.
 
-* Abertura do modal de login
-* Login com credenciais válidas
-* Validação do usuário autenticado
+### Produtos
 
-## Produtos
+* Seleção de produtos;
+* Validação de informações.
 
-* Seleção de produto
+### Carrinho
 
-## Carrinho
+* Adição de produtos;
+* Validação dos itens;
+* Remoção de produtos.
 
-* Adição de produto
-* Validação do produto no carrinho
-* Remoção de produto
+### Checkout
 
-## Checkout
-
-* Abertura do modal de compra
-* Preenchimento do formulário
-* Finalização da compra
-* Validação da mensagem de sucesso
+* Preenchimento do formulário;
+* Finalização da compra;
+* Validação da mensagem de sucesso.
 
 ---
 
-# Padrões Utilizados
+## API Automation
 
-* Page Object Model (POM)
-* Separação de responsabilidades
-* Centralização de dados
-* Reutilização de componentes
-* Encapsulamento de ações
-* Boas práticas de automação Web
+Implementação de testes utilizando RestAssured.
+
+Cobertura:
+
+* Validação de endpoints;
+* Requisições HTTP;
+* Validação de respostas;
+* Organização através de classes base.
 
 ---
 
-# Documentação
+# Padrões e Boas Práticas Aplicadas
 
-A documentação do projeto está disponível na pasta:
+O projeto utiliza:
+
+* Page Object Model (POM);
+* Separação de responsabilidades;
+* Código reutilizável;
+* Centralização de configurações;
+* Organização por camadas;
+* Versionamento Git;
+* Commits semânticos;
+* Branches por funcionalidade;
+* Infraestrutura versionada como código.
+
+---
+
+# CI/CD Pipeline
+
+O projeto possui integração contínua utilizando GitHub Actions.
+
+Fluxo:
 
 ```text
-docs/
+Push / Pull Request
+
+        |
+        v
+
+GitHub Actions
+
+        |
+        v
+
+Build Maven
+
+        |
+        v
+
+Execução dos testes
+
+        |
+        v
+
+Geração de relatório
 ```
-
-Contendo:
-
-| Documento                 | Objetivo                                       |
-| ------------------------- | ---------------------------------------------- |
-| Escopo do Projeto         | Definição dos objetivos e visão do framework   |
-| Estratégia de Testes      | Abordagem adotada para automação               |
-| Cenários de Teste         | Cenários funcionais mapeados                   |
-| Matriz de Rastreabilidade | Relação entre requisitos, cenários e automação |
-| Casos de Teste            | Detalhamento dos testes                        |
-| Decisões Técnicas         | Registro das decisões arquiteturais            |
 
 ---
 
-# Como Executar
+# Infrastructure as Code (Terraform)
 
-Clone o repositório:
+O projeto possui um módulo Terraform demonstrando conceitos de IaC.
+
+Conceitos aplicados:
+
+* Providers;
+* Resources;
+* Variables;
+* Outputs;
+* terraform init;
+* terraform validate;
+* terraform plan.
+
+O módulo utiliza Terraform Local Provider para permitir execução sem dependências externas.
+
+Mais detalhes:
+
+```
+terraform/README.md
+```
+
+---
+
+# Relatórios e Evidências
+
+Durante a execução dos testes são gerados:
+
+* Relatórios HTML;
+* Logs de execução;
+* Screenshots em falhas;
+* Evidências para análise.
+
+---
+
+# Como Executar o Projeto
+
+## Clonar o repositório
 
 ```bash
 git clone git@github.com:Rodrigocostta/qa-hybrid-automation-framework.git
 ```
 
-Acesse a pasta do projeto:
+---
+
+## Acessar o projeto
 
 ```bash
 cd qa-hybrid-automation-framework
 ```
 
-Execute os testes:
+---
+
+## Executar testes
 
 ```bash
 mvn test
@@ -254,79 +401,92 @@ mvn test
 
 ---
 
-# Status Atual do Projeto
+## Executar Terraform
 
-## Concluído
+Acessar:
 
-* Estrutura base do framework
-* Configuração Selenium
-* Configuração Maven
-* Page Object Model
-* Fluxo de Login
-* Fluxo de Produto
-* Fluxo de Carrinho
-* Fluxo de Checkout
-* Documentação inicial do projeto
+```bash
+cd terraform
+```
 
----
+Inicializar:
 
-## Em Desenvolvimento
+```bash
+terraform init
+```
 
-* Relatórios HTML
-* Evidências de execução
+Validar:
 
----
+```bash
+terraform validate
+```
 
-## Planejado
+Visualizar plano:
 
-* Automação de API com Rest Assured
-* Integração UI + API
-* Pipeline CI/CD
-* Relatórios avançados
-* Framework híbrido completo
+```bash
+terraform plan
+```
 
 ---
 
-# Roadmap
+# Roadmap do Projeto
 
-### Fase 1 - UI Automation
+## Fase 1 — UI Automation
 
-✅ Concluída
-
----
-
-### Fase 2 - Relatórios e Evidências
-
-✅ Relatórios HTML Extent Reports
-
-✅ Logs de execução
-
-✅ Evidências automáticas
-
-✅ Screenshots em falha
+✅ Selenium WebDriver
+✅ Page Object Model
+✅ Testes funcionais
 
 ---
 
-### Fase 3 - Integração Contínua
+## Fase 2 — Relatórios e Evidências
 
-⏳ Planejada
-
----
-
-### Fase 4 - API Automation
-
-⏳ Planejada
+✅ ExtentReports
+✅ Logs
+✅ Screenshots automáticos
 
 ---
 
-### Fase 5 - Framework Híbrido
+## Fase 3 — API Automation
 
-⏳ Planejada
+✅ RestAssured
+✅ Testes de endpoints
+✅ Integração API
+
+---
+
+## Fase 4 — CI/CD
+
+✅ GitHub Actions
+✅ Execução automática dos testes
+
+---
+
+## Fase 5 — Infrastructure as Code
+
+✅ Terraform
+✅ Provider
+✅ Resources
+✅ Variables
+✅ Outputs
+
+---
+
+# Próximas Evoluções
+
+Possíveis melhorias futuras:
+
+* Execução paralela de testes;
+* Dockerização do ambiente;
+* Integração com Allure Reports;
+* Execução em ambientes cloud;
+* Testes de performance;
+* Estratégias avançadas de pipeline.
 
 ---
 
 # Autor
 
-Rodrigo Costa
+## Rodrigo Costa
 
-Projeto desenvolvido para evolução profissional em QA Automation, construção de portfólio técnico e aplicação de boas práticas de engenharia de testes.
+Projeto desenvolvido para evolução profissional em QA Automation, aplicação de boas práticas de engenharia de testes e construção de portfólio técnico.
