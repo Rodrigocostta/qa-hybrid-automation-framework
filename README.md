@@ -1,4 +1,18 @@
+<p align="center">
+  <img src="docs/images/banner.png" width="100%" alt="QA Hybrid Automation Framework">
+</p>
 # QA Hybrid Automation Framework
+
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Maven](https://img.shields.io/badge/Maven-3.9+-blue)
+![Selenium](https://img.shields.io/badge/Selenium-4-green)
+![RestAssured](https://img.shields.io/badge/RestAssured-API-success)
+![JUnit](https://img.shields.io/badge/JUnit-4%20%26%205-red)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-blue)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4)
+![Release](https://img.shields.io/badge/Release-v1.0.0-brightgreen)
+
+Framework de automação de testes desenvolvido para consolidar conhecimentos em Quality Assurance Automation, aplicando boas práticas de mercado, arquitetura escalável e evolução contínua.
 
 Framework híbrido de automação de testes desenvolvido em **Java 21**, aplicando boas práticas de engenharia de software, arquitetura escalável e conceitos utilizados em ambientes profissionais de QA Automation.
 
@@ -24,6 +38,70 @@ Construir um framework híbrido de automação capaz de suportar:
 Além do aspecto técnico, o projeto serve como portfólio profissional para demonstração de conhecimentos em QA Automation.
 
 ---
+
+# Features
+
+## 🌐 Web Automation
+
+- ✅ Selenium WebDriver 4
+- ✅ Page Object Model (POM)
+- ✅ JUnit
+- ✅ WebDriverManager
+- ✅ Captura automática de screenshots
+- ✅ Testes funcionais
+
+## 🔌 API Automation
+
+- ✅ RestAssured
+- ✅ Validação de endpoints
+- ✅ Testes HTTP (GET, POST, PUT e DELETE)
+- ✅ Organização em classes base
+
+## 📊 Reporting
+
+- ✅ ExtentReports
+- ✅ Logs de execução
+- ✅ Evidências automáticas
+- ✅ Screenshots em falhas
+
+## ⚙️ CI/CD
+
+- ✅ GitHub Actions
+- ✅ Pipeline automatizada
+- ✅ Build Maven
+- ✅ Execução automática dos testes
+
+## 🏗️ Infrastructure as Code
+
+- ✅ Terraform
+- ✅ Local Provider
+- ✅ Variables
+- ✅ Outputs
+- ✅ Resource Management
+
+# Screenshots
+
+## Estrutura do Projeto
+
+![Project Structure](docs/screenshots/project-structure.png)
+
+---
+
+## Execução dos Testes
+
+![Maven Tests](docs/screenshots/maven-tests.png)
+
+---
+
+## Extent Reports
+
+![Extent Report](docs/screenshots/extent-report.png)
+
+---
+
+## GitHub Actions
+
+![GitHub Actions](docs/screenshots/github-actions.png)
 
 # Arquitetura do Framework
 
